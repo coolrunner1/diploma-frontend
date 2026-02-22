@@ -1,0 +1,72 @@
+{
+  "app-title": "Project management",
+  "home": "Home",
+  "created_at": "Created at",
+  "updated_at": "Updated at",
+  "create": "Create",
+  "save": "Save",
+  "close": "Close",
+  "edit": "Edit",
+  "delete": "Delete",
+  "profile": "Profile",
+  "change-language": "Language",
+  "yes": "Yes",
+  "no": "No",
+  "update-success": "Updated successfully",
+  "Landing": {
+    "manage-projects": "Manage Projects",
+    "beautifully": "Beautifully",
+    "description": "Your all-in-one project management platform.",
+    "get-started": "Get started"
+  },
+  "Auth": {
+    "username": "Username",
+    "username-or-email": "Username or email",
+    "password": "Password",
+    "new-password": "New password",
+    "confirm-password": "Confirm password",
+    "no-account": "Don't have an account yet?",
+    "my-account": "My account",
+    "have-account": "Already have an account?",
+    "register-now": " Sign Up now!",
+    "login-now": " Sign In now!",
+    "sign-in": "Sign in",
+    "sign-up": "Sign up",
+    "sign-out": "Sign out",
+    "delete-sure": "Are you sure that you want to delete your profile? You won't be able to recover it."
+  },
+  "Project": {
+    "projects": "Projects",
+    "add-new-task": "Add a new task",
+    "delete-sure": "Are you sure that you want to delete this project?",
+    "no-projects": "No projects yet",
+    "title": "Project title",
+    "description": "Project description"
+  },
+  "Errors": {
+    "too-short-3": "Minimum length is 3 symbols",
+    "too-short-8": "Minimum length is 8 symbols",
+    "invalid-login-password": "Invalid login or password were provided",
+    "invalid-email": "Invalid email provided",
+    "passwords-no-match": "Passwords don't match",
+    "failed-delete": "Failed to delete",
+    "has already been taken": "Has already been taken",
+    "server-error": "Server error"
+  },
+  "Tasks": {
+    "title": "Task title",
+    "description": "Task description",
+    "status": "Tasks status",
+    "delete-sure": "Are you sure that you want to delete this task?",
+    "to_do": "To Do",
+    "in_progress": "In Progress",
+    "in_testing": "In Testing",
+    "rejected": "Rejected",
+    "done": "Done",
+    "to-do-tasks": "Tasks to be done",
+    "in-progress-tasks": "Tasks in progress",
+    "in-testing-tasks": "Tasks in testing",
+    "rejected-tasks": "Rejected tasks",
+    "done-tasks": "Finished tasks"
+  }
+}
