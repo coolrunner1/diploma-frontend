@@ -9,6 +9,7 @@ export const KanbanTask = (props: KanbanTaskProps) => {
 
     const {ref} = useDraggable({
         id: props.task.uuid,
+        type: "task",
     })
 
     return (
