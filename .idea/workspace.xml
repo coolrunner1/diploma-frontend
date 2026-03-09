@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c793cc68-0e92-4ad5-b059-a59eb25b8088" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/statuses.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/tasks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/tasks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/KanbanStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanStatus.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/KanbanTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanTask.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Kanban/KanbanStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanStatus.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/task.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/task.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +47,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/home/igor/Projects/diploma-frontend/node_modules/typescript/lib",
+    "ts.external.directory.path": "/home/igor/projects/diploma-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

@@ -10,7 +10,7 @@ export type Task = {
     status: string;
 }
 
-export type Tasks = {
+/*export type Tasks = {
     status: string;
     tasks: Task[];
-}
+}*/

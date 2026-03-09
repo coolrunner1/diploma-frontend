@@ -12,25 +12,50 @@ export const getTasks = async (): Promise<Task[]> => {
                     uuid: uuidv4(),
                     name: "Name",
                     description: "Name",
-                    status: "to-do"
+                    status: "To Do"
                 },
                 {
                     uuid: uuidv4(),
                     name: "Name2",
                     description: "Name",
-                    status: "to-do"
+                    status: "To Do"
                 },
+                {
+                    uuid: uuidv4(),
+                    name: "Name2",
+                    description: "Name",
+                    status: "To Do"
+                },
+                {
+                    uuid: uuidv4(),
+                    name: "Name2",
+                    description: "Name",
+                    status: "To Do"
+                },
+                {
+                    uuid: uuidv4(),
+                    name: "Name2",
+                    description: "Name",
+                    status: "To Do"
+                },{
+                    uuid: uuidv4(),
+                    name: "Name2",
+                    description: "Name",
+                    status: "To Do"
+                },
+
+
                 {
                     uuid: uuidv4(),
                     name: "Name3",
                     description: "Name",
-                    status: "in-progress"
+                    status: "In Progress"
                 },
                 {
                     uuid: uuidv4(),
                     name: "Name4",
                     description: "Name",
-                    status: "in-progress"
+                    status: "In Progress"
                 }
             ]);
             localStorage.setItem("tasks", JSON.stringify(tasks));

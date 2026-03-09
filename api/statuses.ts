@@ -8,11 +8,11 @@ export const getStatuses = async (): Promise<Status[]> => {
             statuses = JSON.stringify([
                 {
                     uuid: uuidv4(),
-                    name: "to-do",
+                    name: "To Do",
                 },
                 {
                     uuid: uuidv4(),
-                    name: "in-progress",
+                    name: "In Progress",
                 }
             ]);
             localStorage.setItem("statuses", JSON.stringify(statuses));

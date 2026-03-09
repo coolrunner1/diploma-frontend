@@ -8,6 +8,7 @@ import {KanbanTask} from "@/components/Kanban/KanbanTask";
 import {DragDropProvider} from "@dnd-kit/react";
 import {getStatuses} from "@/api/statuses";
 import {useEffect, useState} from "react";
+import {NavBar} from "@/components/Global/Headers/NavBar";
 
 export default function KanbanPage() {
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -28,17 +29,18 @@ export default function KanbanPage() {
 
     useEffect(() => {
         if (!fetchedTasks) return;
-        setTasks(fetchedTasks)
+        setTasks(fetchedTasks);
     }, [fetchedTasks]);
 
     return (
         <>
+            <NavBar/>
             {isLoading && <div className={"h-screen w-screen animate-pulse bg-gray-400"}>placeholder</div>}
             {!isLoading && !isError && data &&
-                <div className={"flex flex-row gap-5"}>
+                <div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
                     <DragDropProvider
                         onDragStart={event => {
-                            console.log("drag start");
+                            /*console.log("drag start");
                             console.log(event.operation.source?.type);
                             /*if (event.operation.target) {
                                 setActiveTask(event.active.data.current.task);
@@ -68,6 +70,10 @@ export default function KanbanPage() {
                                 tasks={tasks?.filter((task) => task.status === status.name)}
                             />
                         )}
+                        <KanbanStatus
+                            name={"There should be an element for creating a new kanban status"}
+                            tasks={[]}
+                        />
                     </DragDropProvider>
                 </div>
             }
