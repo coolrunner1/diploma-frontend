@@ -12,19 +12,27 @@ export const getTasks = async (): Promise<Task[]> => {
                     uuid: uuidv4(),
                     name: "Name",
                     description: "Name",
-                    status: "To Do"
+                    type: "task",
+                    status: "To Do",
+                    tags: ["test", "test"],
+                    priority: "low",
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 },
                 {
                     uuid: uuidv4(),
                     name: "Name2",
                     description: "Name",
-                    status: "To Do"
+                    type: "bug",
+                    status: "To Do",
+                    priority: "medium"
                 },
                 {
                     uuid: uuidv4(),
                     name: "Name2",
                     description: "Name",
-                    status: "To Do"
+                    status: "To Do",
+                    tags: ["test", "test", "test2", "test3"],
                 },
                 {
                     uuid: uuidv4(),
@@ -41,7 +49,8 @@ export const getTasks = async (): Promise<Task[]> => {
                     uuid: uuidv4(),
                     name: "Name2",
                     description: "Name",
-                    status: "To Do"
+                    status: "To Do",
+                    priority: "critical"
                 },
 
 
