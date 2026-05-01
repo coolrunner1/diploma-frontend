@@ -10,7 +10,7 @@ export const getTasks = async (): Promise<Task[]> => {
             tasks = JSON.stringify([
                 {
                     uuid: uuidv4(),
-                    name: "Name",
+                    name: "Namebfdyvdjv sdv",
                     description: "Name",
                     type: "task",
                     status: "To Do",

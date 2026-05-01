@@ -17,13 +17,13 @@ export const NewKanbanColumn = (props: NewKanbanColumnProps) => {
                 </>
             )}
             <div
-                className="w-80 flex align-center justify-center bg-container rounded-lg border border-dashed border-gray-200"
+                className="w-80 flex align-center justify-center bg-container rounded-lg border border-dashed border-default-border"
                 onClick={() => setModal(true)}
             >
                 <span
                     className={"font-light select-none m-auto text-lg"}
                 >
-                    create-new-status
+                    {t('create-new-status')}
                 </span>
             </div>
         </>

@@ -27,11 +27,8 @@ export const KanbanColumn = (props: KanbanColumnProps) => {
                     modal
                 </>
             )}
-            <div
-
-                className="flex flex-col w-80 bg-container rounded-lg border border-gray-200"
-            >
-                <div className={`px-4 py-3 border-b border-gray-200 rounded-t-lg`}>
+            <div className="flex flex-col w-80 max-h-[80vh] overflow-scroll bg-container rounded-lg border border-default-border" >
+                <div className={`px-4 py-3 border-b border-default-border  rounded-t-lg`}>
                     <div className="flex items-center justify-between">
                         {!editStatus
                             ?

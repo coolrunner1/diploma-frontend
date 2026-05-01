@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/Kanban/PlaceholderKanbanColumn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Kanban/KanbanColumn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanColumn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Kanban/KanbanTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanTask.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Kanban/NewKanbanColumn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/NewKanbanColumn.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "/home/igor/projects/diploma-frontend/components/Kanban",
+    "ts.external.directory.path": "/home/igor/projects/diploma-frontend/node_modules/typescript/lib"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/Kanban" />
+    </key>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>

@@ -4,7 +4,6 @@ import {useMutation, useQuery} from "@tanstack/react-query";
 import {getTasks, updateTaskStatus} from "@/api/tasks";
 import {KanbanColumn} from "@/components/Kanban/KanbanColumn";
 import {Task} from "@/types/task";
-import {KanbanTask} from "@/components/Kanban/KanbanTask";
 import {DragDropProvider} from "@dnd-kit/react";
 import {getStatuses} from "@/api/statuses";
 import {useEffect, useState} from "react";
@@ -12,6 +11,7 @@ import {NavBar} from "@/components/Global/Headers/NavBar";
 import {useParams} from "next/navigation";
 import {SearchBar} from "@/components/Global/Inputs/SearchBar";
 import {NewKanbanColumn} from "@/components/Kanban/NewKanbanColumn";
+import {PlaceholderKanbanColumn} from "@/components/Kanban/PlaceholderKanbanColumn";
 
 export default function KanbanPage() {
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -76,32 +76,30 @@ export default function KanbanPage() {
     return (
         <>
             <NavBar/>
-            {isLoading && <div className={"h-screen w-screen animate-pulse bg-gray-400"}>placeholder</div>}
-            {!isLoading && !isError && statuses &&
-                <>
-                    <div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
+            <>
+                <div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
 
-                    </div>
+                </div>
 
-                    <div className="flex flex-col h-full bg-background">
-                        {/* Header */}
-                        <div className="bg-white border-b border-gray-200 p-4">
-                            <div className="flex items-center justify-between mb-4">
-                                {/*<CreateTaskDialog projectId={projectId || ''} onCreateTask={handleCreateTask} />*/}
+                <div className="flex flex-col h-full bg-background">
+                    {/* Header */}
+                    <div className="bg-container shadow-lg p-4">
+                        <div className="flex items-center justify-between mb-4">
+                            {/*<CreateTaskDialog projectId={projectId || ''} onCreateTask={handleCreateTask} />*/}
+                        </div>
+
+                        {/* Filters */}
+                        <div className="flex items-center gap-3">
+                            <div className="relative flex-1 max-w-md">
+                                <SearchBar
+                                    placeholder="Search tasks..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    keyPressHandler={() => {
+                                    }}
+                                />
                             </div>
-
-                            {/* Filters */}
-                            <div className="flex items-center gap-3">
-                                <div className="relative flex-1 max-w-md">
-                                    <SearchBar
-                                        placeholder="Search tasks..."
-                                        value={searchQuery}
-                                        onChange={(e) => setSearchQuery(e.target.value)}
-                                        keyPressHandler={() => {
-                                        }}
-                                    />
-                                </div>
-                                {/*<Select value={filterType} onValueChange={setFilterType}>
+                            {/*<Select value={filterType} onValueChange={setFilterType}>
                                     <SelectTrigger className="w-[160px]">
                                         <Filter className="w-4 h-4 mr-2" />
                                         <SelectValue placeholder="Filter by type" />
@@ -114,50 +112,58 @@ export default function KanbanPage() {
                                         <SelectItem value="epic">Epic</SelectItem>
                                     </SelectContent>
                                 </Select>*/}
-                            </div>
                         </div>
+                    </div>
 
-                        {/* Board */}
-                        <div className="flex-1 overflow-x-auto p-4">
-                            <div className="flex gap-4 h-full min-w-max">
-                                <DragDropProvider
-                                    onDragStart={event => {
-                                        /*console.log("drag start");
-                                        console.log(event.operation.source?.type);
-                                        /*if (event.operation.target) {
-                                            setActiveTask(event.active.data.current.task);
-                                            return;
-                                        }*/
-                                    }}
-                                    onDragEnd={(event) => {
-                                        if (event.canceled) return;
+                    {/* Board */}
+                    <div className="flex-1 overflow-x-auto p-4">
+                        <div className="flex gap-4 h-full min-w-max">
+                            <DragDropProvider
+                                onDragStart={event => {
+                                    /*console.log("drag start");
+                                    console.log(event.operation.source?.type);
+                                    /*if (event.operation.target) {
+                                        setActiveTask(event.active.data.current.task);
+                                        return;
+                                    }*/
+                                }}
+                                onDragEnd={(event) => {
+                                    if (event.canceled) return;
 
-                                        const {target, source} = event.operation;
-                                        updateTask({mutationKey: ["tasks", source?.id, target?.id]});
-                                        const newTasks = tasks;
-                                        newTasks.forEach((task: Task) => {
-                                            if (task.uuid === source?.id) {
-                                                if (!target?.id) return;
-                                                task.status = target?.id.toString();
-                                            }
-                                        });
-                                        setTasks(newTasks);
-                                        //refetchTasks();
-                                    }}
-                                >
-                                    {statuses.length && statuses.map(status =>
-                                        <KanbanColumn
-                                            key={status.uuid}
-                                            name={status.name}
-                                            tasks={tasks?.filter((task) => task.status === status.name)}
-                                        />
-                                    )}
-                                    <NewKanbanColumn/>
-                                </DragDropProvider>
-                            </div>
+                                    const {target, source} = event.operation;
+                                    updateTask({mutationKey: ["tasks", source?.id, target?.id]});
+                                    const newTasks = tasks;
+                                    newTasks.forEach((task: Task) => {
+                                        if (task.uuid === source?.id) {
+                                            if (!target?.id) return;
+                                            task.status = target?.id.toString();
+                                        }
+                                    });
+                                    setTasks(newTasks);
+                                    //refetchTasks();
+                                }}
+                            >
+
+                                {!statuses && isLoading &&
+                                    [1,2,3,4,5].map((el, index) =>
+                                        <div key={el+index}>
+                                            <PlaceholderKanbanColumn/>
+                                        </div>
+                                    )
+                                }
+                                {statuses && statuses.length && statuses.map(status =>
+                                    <KanbanColumn
+                                        key={status.uuid}
+                                        name={status.name}
+                                        tasks={tasks?.filter((task) => task.status === status.name)}
+                                    />
+                                )}
+                                {statuses && <NewKanbanColumn/>}
+                            </DragDropProvider>
                         </div>
+                    </div>
 
-                        {/* Task Detail
+                    {/* Task Detail
                             <TaskDetail
                                 task={selectedTask}
                                 open={!!selectedTask}
@@ -165,10 +171,9 @@ export default function KanbanPage() {
                                 onStatusChange={handleStatusChange}
                             />
                             */}
-                    </div>
-                </>
+                </div>
+            </>
 
-            }
 
         </>
 

@@ -35,11 +35,11 @@ export const KanbanTask = (props: KanbanTaskProps) => {
     return (
         <div
             ref={ref}
-            className="border bg-background border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow cursor-pointer group select-none"
+            className="border bg-background border-default-border rounded-lg p-3 hover:shadow-md transition-shadow cursor-pointer group select-none"
             onClick={() => props.onClick(props.task)}
         >
             <div className="flex items-start gap-2 mb-2">
-                <span className="text-lg">{typeIcons[props.task.type]}</span>
+                {/*<span className="text-lg">{typeIcons[props.task.type]}</span>*/}
                 <div className="flex flex-row min-w-0">
                     <p className="text-sm line-clamp-2 group-hover:text-blue-600">
                         {props.task.name}
