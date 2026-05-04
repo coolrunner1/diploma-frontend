@@ -12,6 +12,7 @@ import {useParams} from "next/navigation";
 import {SearchBar} from "@/components/Global/Inputs/SearchBar";
 import {NewKanbanColumn} from "@/components/Kanban/NewKanbanColumn";
 import {PlaceholderKanbanColumn} from "@/components/Kanban/PlaceholderKanbanColumn";
+import {TaskDetail} from "@/components/Kanban/TaskDetail";
 
 export default function KanbanPage() {
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -145,8 +146,8 @@ export default function KanbanPage() {
                             >
 
                                 {!statuses && isLoading &&
-                                    [1,2,3,4,5].map((el, index) =>
-                                        <div key={el+index}>
+                                    [1, 2, 3, 4, 5].map((el, index) =>
+                                        <div key={el + index}>
                                             <PlaceholderKanbanColumn/>
                                         </div>
                                     )
@@ -156,6 +157,7 @@ export default function KanbanPage() {
                                         key={status.uuid}
                                         name={status.name}
                                         tasks={tasks?.filter((task) => task.status === status.name)}
+                                        setSelectedTask={setSelectedTask}
                                     />
                                 )}
                                 {statuses && <NewKanbanColumn/>}
@@ -163,14 +165,14 @@ export default function KanbanPage() {
                         </div>
                     </div>
 
-                    {/* Task Detail
-                            <TaskDetail
-                                task={selectedTask}
-                                open={!!selectedTask}
-                                onOpenChange={(open) => !open && setSelectedTask(null)}
-                                onStatusChange={handleStatusChange}
-                            />
-                            */}
+
+                    {selectedTask &&
+                        <TaskDetail
+                            task={selectedTask}
+                            setClosed={() => setSelectedTask(null)}
+                            onStatusChange={handleStatusChange}
+                        />
+                    }
                 </div>
             </>
 

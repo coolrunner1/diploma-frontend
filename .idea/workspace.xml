@@ -2,17 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Kanban/PlaceholderKanbanColumn.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/avatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/select.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/separator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/Modals/BurgerContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Kanban/TaskDetail.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tasks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/tasks.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Misc/Badge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Misc/Badge.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Kanban/KanbanColumn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanColumn.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Kanban/KanbanTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanTask.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Kanban/NewKanbanColumn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/NewKanbanColumn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,12 +43,15 @@
   "keyToString": {
     "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "/home/igor/projects/diploma-frontend/components/Kanban",
+    "last_opened_file_path": "/home/igor/projects/diploma-frontend",
     "ts.external.directory.path": "/home/igor/projects/diploma-frontend/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/components/Global/FigmaTempVibe" />
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/components/Kanban" />
     </key>
   </component>

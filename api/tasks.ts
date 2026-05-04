@@ -25,7 +25,10 @@ export const getTasks = async (): Promise<Task[]> => {
                     description: "Name",
                     type: "bug",
                     status: "To Do",
-                    priority: "medium"
+                    priority: "medium",
+                    tags: ["test", "test"],
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 },
                 {
                     uuid: uuidv4(),
@@ -33,24 +36,38 @@ export const getTasks = async (): Promise<Task[]> => {
                     description: "Name",
                     status: "To Do",
                     tags: ["test", "test", "test2", "test3"],
+                    priority: "low",
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 },
                 {
                     uuid: uuidv4(),
                     name: "Name2",
                     description: "Name",
-                    status: "To Do"
+                    status: "To Do",
+                    tags: ["test", "test"],
+                    priority: "low",
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 },
                 {
                     uuid: uuidv4(),
                     name: "Name2",
                     description: "Name",
-                    status: "To Do"
+                    status: "To Do",
+                    tags: ["test", "test"],
+                    priority: "low",
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 },{
                     uuid: uuidv4(),
                     name: "Name2",
                     description: "Name",
                     status: "To Do",
-                    priority: "critical"
+                    priority: "critical",
+                    tags: ["test", "test"],
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 },
 
 
@@ -58,13 +75,21 @@ export const getTasks = async (): Promise<Task[]> => {
                     uuid: uuidv4(),
                     name: "Name3",
                     description: "Name",
-                    status: "In Progress"
+                    status: "In Progress",
+                    tags: ["test", "test"],
+                    priority: "low",
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 },
                 {
                     uuid: uuidv4(),
                     name: "Name4",
                     description: "Name",
-                    status: "In Progress"
+                    status: "In Progress",
+                    tags: ["test", "test"],
+                    priority: "low",
+                    endTimestamp: Date.now(),
+                    messageCount: 2,
                 }
             ]);
             localStorage.setItem("tasks", JSON.stringify(tasks));

@@ -23,7 +23,7 @@ export const NewKanbanColumn = (props: NewKanbanColumnProps) => {
                 <span
                     className={"font-light select-none m-auto text-lg"}
                 >
-                    {t('create-new-status')}
+                    {t('Project.create-new-status')}
                 </span>
             </div>
         </>

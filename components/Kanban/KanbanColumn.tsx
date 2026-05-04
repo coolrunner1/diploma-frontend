@@ -8,6 +8,7 @@ export type KanbanColumnProps = {
     //id: string;
     name: string;
     tasks?: Task[];
+    setSelectedTask: (task: Task) => void;
 }
 
 export const KanbanColumn = (props: KanbanColumnProps) => {
@@ -52,7 +53,7 @@ export const KanbanColumn = (props: KanbanColumnProps) => {
                         <KanbanTask
                             key={task.uuid}
                             task={task}
-                            onClick={() => {}}
+                            onClick={() => props.setSelectedTask(task)}
                         />
                     ))}
                 </div>
