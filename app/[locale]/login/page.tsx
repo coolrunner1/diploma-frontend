@@ -50,7 +50,7 @@ export default function Login() {
                 <div className="text-center text-sm text-gray-600">
                     {t('no-account')}{' '}
                     <Link href="/register" className="text-blue-600 hover:text-blue-700 font-medium">
-                        {t('sign-up-now')}
+                        {t('register-now')}
                     </Link>
                 </div>
             </CardContent>

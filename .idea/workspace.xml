@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/[locale]/login/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/[locale]/register/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Auth/AuthFormContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Global/Buttons/HeaderButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/checkbox.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/Buttons/LogoButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Global/Buttons/LanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Buttons/LanguageSwitcher.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Global/Buttons/ThemeSwitchButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Buttons/ThemeSwitchButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Global/FigmaTempVibe/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/proxy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Auth/AuthFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Auth/AuthFormContainer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778172374134</updated>
-      <workItem from="1778172375212" duration="2718000" />
+      <workItem from="1778172375212" duration="3860000" />
     </task>
     <servers />
   </component>
