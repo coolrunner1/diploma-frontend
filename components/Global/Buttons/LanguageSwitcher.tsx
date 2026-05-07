@@ -2,6 +2,8 @@ import {Link} from "@/i18n/navigation";
 import {useState} from "react";
 import {useTranslations} from "next-intl";
 import {usePathname} from "next/navigation";
+import {LucideLanguages} from "lucide-react";
+import {HeaderButton} from "@/components/Global/Buttons/HeaderButton";
 
 export type LanguageSwitcherProps = {
     className?: string;
@@ -28,14 +30,11 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
 
     return (
         <div className="block relative">
-            <button
+            <HeaderButton
                 onClick={() => setIsOpen(!isOpen)}
-                className={props.className}
-                aria-haspopup="true"
-                aria-expanded={isOpen}
             >
-                {t("change-language")}
-            </button>
+                <LucideLanguages/>
+            </HeaderButton>
             {isOpen && (
                 <div
                     className="flex flex-col absolute bg-container shadow-lg w-24 rounded-md"

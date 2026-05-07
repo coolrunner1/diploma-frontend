@@ -11,7 +11,7 @@ export const config = {
     matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
 };
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
     /*const { pathname } = request.nextUrl;
     const token = request.cookies.get("_token")
     if (pathname.includes('/dashboard') || pathname.includes('/profile')) {

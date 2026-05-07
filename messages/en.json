@@ -20,6 +20,8 @@
     "get-started": "Get started"
   },
   "Auth": {
+    "create-account": "Create an account",
+    "sing-in-continue": "Sign in to continue",
     "username": "Username",
     "username-or-email": "Username or email",
     "password": "Password",

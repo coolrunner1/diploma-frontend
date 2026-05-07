@@ -20,6 +20,8 @@
     "get-started": "Войти"
   },
   "Auth": {
+    "create-account": "Регистрация",
+    "sing-in-continue": "Вход",
     "username": "Имя пользователя",
     "username-or-email": "Логин или email",
     "password": "Пароль",
