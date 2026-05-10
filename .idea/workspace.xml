@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/dropdown-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/Headers/SidebarContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/generators.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/kanban/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Buttons/LanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Buttons/LanguageSwitcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/FigmaTempVibe/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/avatar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/FigmaTempVibe/dropdown-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/dropdown-menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/FigmaTempVibe/select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/FigmaTempVibe/select.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Kanban/KanbanColumn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Kanban/KanbanColumn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Misc/PopupsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Misc/PopupsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -93,6 +102,7 @@
       <workItem from="1778172375212" duration="5474000" />
       <workItem from="1778230697148" duration="3310000" />
       <workItem from="1778266323271" duration="599000" />
+      <workItem from="1778395942284" duration="15532000" />
     </task>
     <servers />
   </component>

@@ -18,7 +18,7 @@ export const useStore = create<Store>()((set) => ({
     popMessage: () => set((state) => {
         state.messageQueue.pop();
         return ({
-            messageQueue: state.messageQueue
+            messageQueue: [...state.messageQueue]
         })
     })
 }))

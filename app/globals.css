@@ -17,13 +17,15 @@
   --foreground: #171717;
   --item-container: #ffffff;
   --default-border: #e5e7eb;
+  --hover: #deeaff;
 }
 
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
   --item-container: #181818;
-  --default-border: #6a7282;
+  --default-border: #5e6d80;
+  --hover: #4949c6;
 }
 
 @theme inline {
@@ -31,6 +33,7 @@
   --color-foreground: var(--foreground);
   --color-container: var(--item-container);
   --color-default-border: var(--default-border);
+  --color-hover: var(--hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

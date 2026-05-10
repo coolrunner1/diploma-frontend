@@ -45,7 +45,7 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
                         languages.map((language) =>
                             <Link
                                 key={language.locale}
-                                className="hover:bg-yellow-100 dark:hover:bg-gray-800  w-full"
+                                className="hover:bg-hover w-full"
                                 href={href}
                                 locale={language.locale}
                             >

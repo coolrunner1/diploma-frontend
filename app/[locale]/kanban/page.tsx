@@ -17,6 +17,10 @@ import {triggerApiError} from "@/api/projects";
 import {useStore} from "@/utils/store";
 import {ErrorPopupContainer} from "@/components/Global/Misc/PopupsContainer";
 import {AxiosErrorToMessage} from "@/utils/mappers";
+import {AxiosError} from "axios";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/Global/FigmaTempVibe/select";
+import {Filter} from "lucide-react";
+import {generateArrayOfUUIDs} from "@/utils/generators";
 
 export default function KanbanPage() {
     const pushError = useStore(state => state.pushMessage);
@@ -28,9 +32,10 @@ export default function KanbanPage() {
 
     useEffect(() => {
         if (error) {
-            pushError(AxiosErrorToMessage(error));
+            pushError(AxiosErrorToMessage(error as AxiosError));
         }
     }, [error])
+
 
     const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -86,7 +91,7 @@ export default function KanbanPage() {
     if (!!projectId) {
         return (
             <div className="flex items-center justify-center h-full">
-                <p className="text-gray-500">Project not found</p>
+                <p className="text-gray-500">Project was not found</p>
             </div>
         );
     }
@@ -94,11 +99,10 @@ export default function KanbanPage() {
     return (
         <>
             <ErrorPopupContainer/>
-            <NavBar/>
-            <>
-                <div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
+            <NavBar>
+                {/*<div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
 
-                </div>
+                </div>*/}
 
                 <div className="flex flex-col h-full bg-background">
                     {/* Header */}
@@ -118,19 +122,20 @@ export default function KanbanPage() {
                                     }}
                                 />
                             </div>
-                            {/*<Select value={filterType} onValueChange={setFilterType}>
-                                    <SelectTrigger className="w-[160px]">
-                                        <Filter className="w-4 h-4 mr-2" />
-                                        <SelectValue placeholder="Filter by type" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="all">All Types</SelectItem>
-                                        <SelectItem value="task">Task</SelectItem>
-                                        <SelectItem value="bug">Bug</SelectItem>
-                                        <SelectItem value="story">Story</SelectItem>
-                                        <SelectItem value="epic">Epic</SelectItem>
-                                    </SelectContent>
-                                </Select>*/}
+                            {/*Prototype*/}
+                            <Select value={filterType} onValueChange={setFilterType}>
+                                <SelectTrigger className="w-40">
+                                    <Filter className="w-4 h-4 mr-2"/>
+                                    <SelectValue placeholder="Filter by type"/>
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="all">All Types</SelectItem>
+                                    <SelectItem value="task">Task</SelectItem>
+                                    <SelectItem value="bug">Bug</SelectItem>
+                                    <SelectItem value="story">Story</SelectItem>
+                                    <SelectItem value="epic">Epic</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
                     </div>
 
@@ -164,8 +169,8 @@ export default function KanbanPage() {
                             >
 
                                 {!statuses && isLoading &&
-                                    [1, 2, 3, 4, 5].map((el, index) =>
-                                        <div key={el + index}>
+                                    generateArrayOfUUIDs(5).map((el) =>
+                                        <div key={el}>
                                             <PlaceholderKanbanColumn/>
                                         </div>
                                     )
@@ -192,7 +197,7 @@ export default function KanbanPage() {
                         />
                     }
                 </div>
-            </>
+            </NavBar>
 
 
         </>
