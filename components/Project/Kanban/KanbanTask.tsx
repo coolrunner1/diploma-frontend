@@ -4,25 +4,11 @@ import {Calendar, MessageSquare} from "lucide-react";
 import {Badge} from "@/components/Global/Misc/Badge";
 import {useParams} from "next/navigation";
 import {useEffect} from "react";
+import {priorityBgColors} from "@/constants/colors";
 
 export type KanbanTaskProps = {
     task: Task;
     onClick: (task: Task) => void;
-};
-
-const priorityColors = {
-    low: 'bg-blue-500',
-    medium: 'bg-yellow-500',
-    high: 'bg-orange-500',
-    critical: 'bg-red-500',
-};
-
-// todo: change icons to svgs
-const typeIcons = {
-    task: '📋',
-    bug: '🐛',
-    story: '📖',
-    epic: '🚀',
 };
 
 export const KanbanTask = (props: KanbanTaskProps) => {
@@ -47,7 +33,7 @@ export const KanbanTask = (props: KanbanTaskProps) => {
             <div className="flex items-start gap-2 mb-2">
                 {/*<span className="text-lg">{typeIcons[props.task.type]}</span>*/}
                 <div className="flex flex-row min-w-0">
-                    <div className={`min-w-1.5 h-1.5 m-auto mr-2 rounded-full ${priorityColors[props.task.priority]}`} />
+                    <div className={`min-w-1.5 h-1.5 m-auto mr-2 rounded-full ${priorityBgColors[props.task.priority]}`} />
                     <p className="text-sm line-clamp-2 group-hover:text-blue-600">
                         {props.task.name}
                     </p>
@@ -85,7 +71,7 @@ export const KanbanTask = (props: KanbanTaskProps) => {
                     {props.task.endTimestamp && (
                         <>
                             <Calendar className="w-3 h-3 ml-1" />
-                            <span>{new Date(props.task.endTimestamp).toLocaleDateString(locale === 'en' ? 'en-US' : 'ru-RU', { month: 'short', day: 'numeric' })}</span>
+                            <span>{new Date(props.task.endTimestamp).toLocaleDateString(locale, { month: 'short', day: 'numeric' })}</span>
                         </>
                     )}
                 </div>

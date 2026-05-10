@@ -16,6 +16,8 @@
   "yes": "Да",
   "no": "Нет",
   "update-success": "Успешно обновлено",
+  "type": "Тип",
+  "due-date": "Срок окончания",
   "Landing": {
     "manage-projects": "Управляйте Проектами",
     "beautifully": "Со Стилем",
@@ -81,6 +83,11 @@
     "in-progress-tasks": "Задачи в процессе выполнения",
     "in-testing-tasks": "Задачи в процессе тестирования",
     "rejected-tasks": "Отказанные задачи",
-    "done-tasks": "Завершённые задачи"
+    "done-tasks": "Завершённые задачи",
+    "priority": "Приоритет",
+    "assignee": "Ответственный"
+  },
+  "ListView": {
+    "summary": "Задача"
   }
 }

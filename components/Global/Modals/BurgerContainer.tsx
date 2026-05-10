@@ -26,7 +26,7 @@ export const BurgerContainer = (props: BurgerContainerProps) => {
     return (
         <div
             onClick={close}
-            className={`select-none z-20 fixed top-0 min-h-screen min-w-screen bg-[#000000a0]`}
+            className={`select-none z-20 fixed top-0 left-0 min-h-screen min-w-screen bg-[#000000a0]`}
         >
             <div
                 onClick={(e) => e.stopPropagation()}

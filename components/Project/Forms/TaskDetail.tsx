@@ -60,9 +60,7 @@ export const TaskDetail = (props: TaskDetailProps) => {
 
                     <Separator/>
 
-                    {/* Details Grid */}
                     <div className="grid grid-cols-2 gap-4">
-                        {/* Status */}
                         <div>
                             <label className="text-sm font-semibold mb-2 block">
                                 {t('status')}

@@ -16,6 +16,8 @@
   "yes": "Yes",
   "no": "No",
   "update-success": "Updated successfully",
+  "type": "Type",
+  "due-date": "Due date",
   "Landing": {
     "manage-projects": "Manage Projects",
     "beautifully": "Beautifully",
@@ -80,6 +82,11 @@
     "in-progress-tasks": "Tasks in progress",
     "in-testing-tasks": "Tasks in testing",
     "rejected-tasks": "Rejected tasks",
-    "done-tasks": "Finished tasks"
+    "done-tasks": "Finished tasks",
+    "priority": "Priority",
+    "assignee": "Assignee"
+  },
+  "ListView": {
+    "summary": "Summary"
   }
 }

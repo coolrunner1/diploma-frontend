@@ -1,26 +1,24 @@
 "use client"
 
 import {useMutation, useQuery} from "@tanstack/react-query";
-import {getTasks, updateTaskStatus} from "@/api/tasks";
-import {KanbanColumn} from "@/components/Kanban/KanbanColumn";
+import {KanbanColumn} from "@/components/Project/Kanban/KanbanColumn";
 import {Task} from "@/types/task";
 import {DragDropProvider} from "@dnd-kit/react";
 import {getStatuses} from "@/api/statuses";
 import {useEffect, useState} from "react";
 import {NavBar} from "@/components/Global/Headers/NavBar";
 import {useParams} from "next/navigation";
-import {SearchBar} from "@/components/Global/Inputs/SearchBar";
-import {NewKanbanColumn} from "@/components/Kanban/NewKanbanColumn";
-import {PlaceholderKanbanColumn} from "@/components/Kanban/PlaceholderKanbanColumn";
-import {TaskDetail} from "@/components/Kanban/TaskDetail";
+import {NewKanbanColumn} from "@/components/Project/Kanban/NewKanbanColumn";
+import {PlaceholderKanbanColumn} from "@/components/Project/Kanban/PlaceholderKanbanColumn";
+import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
 import {triggerApiError} from "@/api/projects";
 import {useStore} from "@/utils/store";
 import {ErrorPopupContainer} from "@/components/Global/Misc/PopupsContainer";
 import {AxiosErrorToMessage} from "@/utils/mappers";
 import {AxiosError} from "axios";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/Global/FigmaTempVibe/select";
-import {Filter} from "lucide-react";
 import {generateArrayOfUUIDs} from "@/utils/generators";
+import {getTasks, updateTaskStatus} from "@/api/tasks";
+import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
 
 export default function KanbanPage() {
     const pushError = useStore(state => state.pushMessage);
@@ -60,8 +58,8 @@ export default function KanbanPage() {
 
     const {projectId} = useParams();
     const [selectedTask, setSelectedTask] = useState<Task | null>(null);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [filterType, setFilterType] = useState<string>('all');
+    /*const [searchQuery, setSearchQuery] = useState('');
+    const [filterType, setFilterType] = useState<string>('all');*/
 
     //const project = projects.find((p) => p.id === projectId);
     //const projectTasks = tasks.filter((task) => task.projectId === projectId);
@@ -88,7 +86,7 @@ export default function KanbanPage() {
         setTasks((prev) => [...prev, newTask]);
     };
 
-    if (!!projectId) {
+    if (!projectId) {
         return (
             <div className="flex items-center justify-center h-full">
                 <p className="text-gray-500">Project was not found</p>
@@ -100,44 +98,13 @@ export default function KanbanPage() {
         <>
             <ErrorPopupContainer/>
             <NavBar>
+                <ProjectHeader/>
                 {/*<div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
 
                 </div>*/}
 
                 <div className="flex flex-col h-full bg-background">
-                    {/* Header */}
-                    <div className="bg-container shadow-lg p-4">
-                        <div className="flex items-center justify-between mb-4">
-                            {/*<CreateTaskDialog projectId={projectId || ''} onCreateTask={handleCreateTask} />*/}
-                        </div>
 
-                        {/* Filters */}
-                        <div className="flex items-center gap-3">
-                            <div className="relative flex-1 max-w-md">
-                                <SearchBar
-                                    placeholder="Search tasks..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    keyPressHandler={() => {
-                                    }}
-                                />
-                            </div>
-                            {/*Prototype*/}
-                            <Select value={filterType} onValueChange={setFilterType}>
-                                <SelectTrigger className="w-40">
-                                    <Filter className="w-4 h-4 mr-2"/>
-                                    <SelectValue placeholder="Filter by type"/>
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="all">All Types</SelectItem>
-                                    <SelectItem value="task">Task</SelectItem>
-                                    <SelectItem value="bug">Bug</SelectItem>
-                                    <SelectItem value="story">Story</SelectItem>
-                                    <SelectItem value="epic">Epic</SelectItem>
-                                </SelectContent>
-                            </Select>
-                        </div>
-                    </div>
 
                     {/* Board */}
                     <div className="flex-1 overflow-x-auto p-4 no-scrollbar">
