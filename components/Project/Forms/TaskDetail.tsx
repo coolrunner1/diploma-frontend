@@ -1,10 +1,10 @@
 import {Badge} from '@/components/Global/Misc/Badge';
-import {Avatar, AvatarFallback, AvatarImage} from '@/components/Global/FigmaTempVibe/avatar';
-import {Separator} from '@/components/Global/FigmaTempVibe/separator';
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/Global/ui/avatar';
+import {Separator} from '@/components/Global/ui/separator';
 import {AlertCircle, Calendar, MessageSquare, MoreHorizontal, Paperclip} from 'lucide-react';
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/Global/FigmaTempVibe/select";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/Global/ui/select";
 import {Task} from "@/types/task";
-import {Button} from "@/components/Global/FigmaTempVibe/button";
+import {Button} from "@/components/Global/ui/button";
 import {useTranslations} from "next-intl";
 import {BurgerContainer} from "@/components/Global/Modals/BurgerContainer";
 

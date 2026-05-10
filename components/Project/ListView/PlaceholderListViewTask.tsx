@@ -1,4 +1,4 @@
-import {TableCell, TableRow} from "@/components/Global/FigmaTempVibe/table";
+import {TableCell, TableRow} from "@/components/Global/ui/table";
 
 export const PlaceholderListViewTask = () => {
     return (

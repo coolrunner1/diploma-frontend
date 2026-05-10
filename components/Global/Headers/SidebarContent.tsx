@@ -5,27 +5,27 @@ import {
     DropdownMenuItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from '@/components/Global/FigmaTempVibe/dropdown-menu';
+} from '@/components/Global/ui/dropdown-menu';
 import {Link} from "@/i18n/navigation";
 import {useParams} from "next/navigation";
 import {LogoButton} from "@/components/Global/Buttons/LogoButton";
 import {useTranslations} from "next-intl";
-import {Avatar, AvatarFallback} from "@/components/Global/FigmaTempVibe/avatar";
+import {Avatar, AvatarFallback} from "@/components/Global/ui/avatar";
 
 export type SidebarContentProps = {
     setClosed: () => void
 }
 
 export const SidebarContent = (props: SidebarContentProps) => {
-    const {projectId} = useParams();
+    const {pathname, projectId} = useParams();
     //const currentProject = projects.find((p) => p.id === projectId);
 
     const t = useTranslations();
 
     const navigation = [
-        {name: 'projects', href: '/', icon: Home},
-        {name: 'team', href: '/team', icon: Users},
-        {name: 'Navbar.blocking-tasks', href: '/blocking-tasks', icon: Lock},
+        {name: 'projects', href: '/projects', icon: Home},
+        {name: 'team', href: `/projects/${projectId}/team`, icon: Users},
+        {name: 'Navbar.blocking-tasks', href: `/projects/${projectId}/blocking-tasks`, icon: Lock},
     ];
 
     return (
@@ -38,7 +38,7 @@ export const SidebarContent = (props: SidebarContentProps) => {
             <nav className="flex-1 p-4 space-y-1">
                 {navigation.map((item) => {
                     const Icon = item.icon;
-                    const isActive = location.pathname === item.href;
+                    const isActive = pathname === item.href;
                     return (
                         <Link
                             key={item.name}

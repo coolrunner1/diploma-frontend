@@ -1,4 +1,4 @@
-import {TableCell, TableRow} from "@/components/Global/FigmaTempVibe/table";
+import {TableCell, TableRow} from "@/components/Global/ui/table";
 import {AlertCircle, Calendar} from "lucide-react";
 import {stringToHexColor} from "@/utils/utils";
 import {Task} from "@/types/task";

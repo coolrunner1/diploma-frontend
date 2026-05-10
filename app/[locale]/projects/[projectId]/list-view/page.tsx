@@ -1,6 +1,6 @@
 'use client'
 import {useState} from 'react';
-import {Table, TableBody, TableHead, TableHeader, TableRow,} from '@/components/Global/FigmaTempVibe/table';
+import {Table, TableBody, TableHead, TableHeader, TableRow,} from '@/components/Global/ui/table';
 import {useParams} from "next/navigation";
 import {Task} from "@/types/task";
 import {useQuery} from "@tanstack/react-query";

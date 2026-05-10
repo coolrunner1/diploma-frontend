@@ -1,7 +1,7 @@
 import {Link} from "@/i18n/navigation";
 import {LanguageSwitcher} from "@/components/Global/Buttons/LanguageSwitcher";
 import {ThemeSwitchButton} from "@/components/Global/Buttons/ThemeSwitchButton";
-import {Card} from "@/components/Global/FigmaTempVibe/card";
+import {Card} from "../Global/ui/card";
 import {ReactNode} from "react";
 import {LogoButton} from "@/components/Global/Buttons/LogoButton";
 

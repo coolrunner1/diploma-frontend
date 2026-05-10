@@ -1,10 +1,9 @@
 import {Task} from "@/types/task";
 import {KanbanTask} from "@/components/Project/Kanban/KanbanTask";
 import {useDroppable} from "@dnd-kit/react";
-import {useTranslations} from "next-intl";
 import {useState} from "react";
-import {Button} from "@/components/Global/FigmaTempVibe/button";
-import {Input} from "@/components/Global/FigmaTempVibe/input";
+import {Button} from "@/components/Global/ui/button";
+import {Input} from "@/components/Global/ui/input";
 import {stringToHexColor} from "@/utils/utils";
 
 export type KanbanColumnProps = {

@@ -1,5 +1,5 @@
 import {SearchBar} from "@/components/Global/Inputs/SearchBar";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/Global/FigmaTempVibe/select";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/Global/ui/select";
 import {Filter} from "lucide-react";
 import {useState} from "react";
 

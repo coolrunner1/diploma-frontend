@@ -1,6 +1,6 @@
 import {Bell, Menu,} from 'lucide-react';
 import {ReactNode, useState} from 'react';
-import {Button} from "@/components/Global/FigmaTempVibe/button";
+import {Button} from "@/components/Global/ui/button";
 import {ThemeSwitchButton} from "@/components/Global/Buttons/ThemeSwitchButton";
 import {LanguageSwitcher} from "@/components/Global/Buttons/LanguageSwitcher";
 import {HeaderButton} from "@/components/Global/Buttons/HeaderButton";

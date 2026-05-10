@@ -1,8 +1,8 @@
 "use client"
-import {CardContent, CardHeader, CardTitle} from '@/components/Global/FigmaTempVibe/card';
-import {Button} from "@/components/Global/FigmaTempVibe/button";
-import {Label} from "@/components/Global/FigmaTempVibe/label";
-import {Input} from "@/components/Global/FigmaTempVibe/input";
+import {CardContent, CardHeader, CardTitle} from '../../../components/Global/ui/card';
+import {Button} from "../../../components/Global/ui/button";
+import {Label} from "../../../components/Global/ui/label";
+import {Input} from "../../../components/Global/ui/input";
 import {Link} from "@/i18n/navigation";
 import {useTranslations} from "next-intl";
 import {AuthFormContainer} from "@/components/Auth/AuthFormContainer";

@@ -5,8 +5,8 @@
       }
     }, []);*/
 
-import { Button } from '@/components/Global/FigmaTempVibe/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/Global/FigmaTempVibe/card';
+import { Button } from '../../components/Global/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/Global/ui/card';
 //import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import {
     LayoutGrid,

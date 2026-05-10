@@ -1,9 +1,9 @@
 "use client"
-import {Button} from '@/components/Global/FigmaTempVibe/button';
-import {Input} from '@/components/Global/FigmaTempVibe/input';
-import {Label} from '@/components/Global/FigmaTempVibe/label';
-import {CardContent, CardDescription, CardHeader, CardTitle} from '@/components/Global/FigmaTempVibe/card';
-import {Checkbox} from '@/components/Global/FigmaTempVibe/checkbox';
+import {Button} from '../../../components/Global/ui/button';
+import {Input} from '../../../components/Global/ui/input';
+import {Label} from '../../../components/Global/ui/label';
+import {CardContent, CardDescription, CardHeader, CardTitle} from '../../../components/Global/ui/card';
+import {Checkbox} from '../../../components/Global/ui/checkbox';
 import {SubmitEvent, useState} from 'react';
 import {Link} from "@/i18n/navigation";
 import {useTranslations} from "next-intl";
