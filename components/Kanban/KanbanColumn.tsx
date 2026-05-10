@@ -28,8 +28,8 @@ export const KanbanColumn = (props: KanbanColumnProps) => {
                     modal
                 </>
             )}
-            <div className="flex flex-col w-80 max-h-[80vh] overflow-scroll bg-container rounded-lg border border-default-border" >
-                <div className={`px-4 py-3 border-b border-default-border  rounded-t-lg`}>
+            <div className="flex flex-col w-80 max-h-[80vh] overflow-scroll bg-container rounded-lg border border-default-border no-scrollbar" >
+                <div className={`px-4 py-3 border-b border-default-border rounded-t-lg`}>
                     <div className="flex items-center justify-between">
                         {!editStatus
                             ?
@@ -48,7 +48,7 @@ export const KanbanColumn = (props: KanbanColumnProps) => {
                         }
                     </div>
                 </div>
-                <div ref={ref} className="flex-1 p-3 space-y-3 overflow-y-auto">
+                <div ref={ref} className="flex-1 p-3 space-y-3 overflow-y-auto no-scrollbar">
                     {props.tasks && props.tasks.length > 0 && props.tasks.map((task: Task) => (
                         <KanbanTask
                             key={task.uuid}

@@ -13,8 +13,25 @@ import {SearchBar} from "@/components/Global/Inputs/SearchBar";
 import {NewKanbanColumn} from "@/components/Kanban/NewKanbanColumn";
 import {PlaceholderKanbanColumn} from "@/components/Kanban/PlaceholderKanbanColumn";
 import {TaskDetail} from "@/components/Kanban/TaskDetail";
+import {triggerApiError} from "@/api/projects";
+import {useStore} from "@/utils/store";
+import {ErrorPopupContainer} from "@/components/Global/Misc/PopupsContainer";
+import {AxiosErrorToMessage} from "@/utils/mappers";
 
 export default function KanbanPage() {
+    const pushError = useStore(state => state.pushMessage);
+
+    const {error, refetch: refetchError} = useQuery({
+        queryKey: ["errorTrigger"],
+        queryFn: triggerApiError
+    })
+
+    useEffect(() => {
+        if (error) {
+            pushError(AxiosErrorToMessage(error));
+        }
+    }, [error])
+
     const [tasks, setTasks] = useState<Task[]>([]);
 
     const {data: statuses, isLoading, isError} = useQuery({
@@ -76,6 +93,7 @@ export default function KanbanPage() {
 
     return (
         <>
+            <ErrorPopupContainer/>
             <NavBar/>
             <>
                 <div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
@@ -117,7 +135,7 @@ export default function KanbanPage() {
                     </div>
 
                     {/* Board */}
-                    <div className="flex-1 overflow-x-auto p-4">
+                    <div className="flex-1 overflow-x-auto p-4 no-scrollbar">
                         <div className="flex gap-4 h-full min-w-max">
                             <DragDropProvider
                                 onDragStart={event => {
