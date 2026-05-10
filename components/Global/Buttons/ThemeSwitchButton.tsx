@@ -6,14 +6,19 @@ import {HeaderButton} from "@/components/Global/Buttons/HeaderButton";
 export const ThemeSwitchButton = () => {
     const [isDark, setIsDark] = useState(false);
 
-    useEffect(() => {
-        setIsDark(document.body.classList.contains("dark"));
-    }, []);
-
     const onClick = () => {
         document.body.classList.toggle('dark')
         setIsDark(!isDark);
     }
+
+    useEffect(() => {
+        const refreshIcon = setTimeout(() => {
+            setIsDark(document.body.classList.contains("dark"))
+        },100)
+        return () => {
+            clearTimeout(refreshIcon);
+        }
+    }, []);
 
     return (
         <HeaderButton

@@ -15,15 +15,12 @@ export const NavBar = (props: NavBarProps) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     return (
         <div className="flex h-screen">
-            {/* Desktop Sidebar */}
             <aside
                 className={`${sidebarOpen ? "flex" : "hidden"} bg-container md:flex w-full md:w-64 border-r border-default-border flex-col`}>
                 <SidebarContent setClosed={() => setSidebarOpen(false)}/>
             </aside>
 
-            {/* Main Content */}
             <div className="flex-1 flex flex-col overflow-hidden">
-                {/* Top Navigation */}
                 <header className="border-b border-default-border px-4 py-3">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
