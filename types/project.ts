@@ -1,7 +1,7 @@
 import {User} from "@/types/user";
 import {Task} from "@/types/task";
 
-export type ProjectBoard = {
+export type Project = {
     id: number;
     uuid: string;
     title: string;
@@ -10,9 +10,10 @@ export type ProjectBoard = {
     companyId: number;
     startDate: string;
     endDate: string;
+}
 
+export type ProjectBoard = Project & {
     projectStatus: ProjectStatus[];
-
     tasks: Task[];
 };
 

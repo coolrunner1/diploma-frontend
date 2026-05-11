@@ -1,4 +1,15 @@
-import {ChevronDown, Home, Lock, SidebarClose, Users,} from 'lucide-react';
+import {
+    BarChart3,
+    Calendar,
+    ChevronDown,
+    Home,
+    LayoutGrid,
+    List,
+    Lock,
+    Settings,
+    SidebarClose,
+    Users,
+} from 'lucide-react';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -11,22 +22,36 @@ import {useParams} from "next/navigation";
 import {LogoButton} from "@/components/Global/Buttons/LogoButton";
 import {useTranslations} from "next-intl";
 import {Avatar, AvatarFallback} from "@/components/Global/ui/avatar";
+import {useQuery} from "@tanstack/react-query";
+import {getProjectBoard, getProjects} from "@/api/projects";
 
 export type SidebarContentProps = {
     setClosed: () => void
 }
 
+const navigation = [
+    {name: 'projects', href: '/projects', icon: Home},
+];
+
+const projectNavigation = [
+    {name: 'board-view', href: `kanban`, icon: LayoutGrid},
+    {name: 'list-view', href: `list-view`, icon: List},
+    {name: 'calendar', href: `calendar`, icon: Calendar},
+    {name: 'stats', href: `stats`, icon: BarChart3},
+    {name: 'Navbar.blocking-tasks', href: `blocking-tasks`, icon: Lock},
+    {name: 'team', href: `team`, icon: Users},
+    {name: 'settings', href: `settings`, icon: Settings},
+]
+
 export const SidebarContent = (props: SidebarContentProps) => {
     const {pathname, projectId} = useParams();
-    //const currentProject = projects.find((p) => p.id === projectId);
+
+    const {data: projects, isLoading, isError, error} = useQuery({
+        queryFn: getProjects,
+        queryKey: ["_projects", projectId]
+    })
 
     const t = useTranslations();
-
-    const navigation = [
-        {name: 'projects', href: '/projects', icon: Home},
-        {name: 'team', href: `/projects/${projectId}/team`, icon: Users},
-        {name: 'Navbar.blocking-tasks', href: `/projects/${projectId}/blocking-tasks`, icon: Lock},
-    ];
 
     return (
         <div className="flex flex-col h-full">
@@ -57,74 +82,48 @@ export const SidebarContent = (props: SidebarContentProps) => {
                 })}
 
                 <div className="pt-4">
-                    <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider">
                         {t('Navbar.your-projects')}
                     </div>
                     <div className="space-y-1 mt-2">
-                        {/*projects.map((project) => (
+
+
+                        {!isLoading && projects && projects?.map((project) => (
                                 <div key={project.id}>
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
                                             <button
                                                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                                                    projectId === project.id
+                                                    Number(projectId) === project.id
                                                         ? 'bg-blue-50 text-blue-700'
-                                                        : 'text-gray-700 hover:bg-gray-100'
+                                                        : 'hover:bg-gray-100'
                                                 }`}
                                             >
-                                                <span className="text-lg">{project.icon}</span>
                                                 <span className="flex-1 text-left text-sm font-medium truncate">
-                                                    {project.name}
+                                                    {project.title}
                                                 </span>
                                                 <ChevronDown className="w-4 h-4 text-gray-400" />
                                             </button>
                                         </DropdownMenuTrigger>
                                         <DropdownMenuContent align="start" className="w-56">
-                                            <DropdownMenuItem asChild>
-                                                <Link
-                                                    href={`/project/${project.id}/board`}
-                                                    onClick={() => setSidebarOpen(false)}
-                                                >
-                                                    <LayoutGrid className="w-4 h-4 mr-2" />
-                                                    Board View
-                                                </Link>
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem asChild>
-                                                <Link
-                                                    href={`/project/${project.id}/list`}
-                                                    onClick={() => setSidebarOpen(false)}
-                                                >
-                                                    <List className="w-4 h-4 mr-2" />
-                                                    List View
-                                                </Link>
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem asChild>
-                                                <Link
-                                                    href={`/project/${project.id}/calendar`}
-                                                    onClick={() => setSidebarOpen(false)}
-                                                >
-                                                    <Calendar className="w-4 h-4 mr-2" />
-                                                    Calendar
-                                                </Link>
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem asChild>
-                                                <Link
-                                                    href={`/project/${project.id}/stats`}
-                                                    onClick={() => setSidebarOpen(false)}
-                                                >
-                                                    <BarChart3 className="w-4 h-4 mr-2" />
-                                                    Statistics
-                                                </Link>
-                                            </DropdownMenuItem>
-                                            <DropdownMenuSeparator />
-                                            <DropdownMenuItem>
-                                                <Settings className="w-4 h-4 mr-2" />
-                                                Project Settings
-                                            </DropdownMenuItem>
+                                            {projectNavigation.map((item) => {
+                                                const Icon = item.icon;
+                                                return (
+                                                    <DropdownMenuItem key={item.name} asChild>
+                                                        <Link
+                                                            href={`/projects/${project.id}/${item.href}`}
+                                                            onClick={() => props.setClosed()}
+                                                        >
+                                                            <Icon className="w-4 h-4 mr-2" />
+                                                            {t(item.name)}
+                                                        </Link>
+                                                    </DropdownMenuItem>
+                                                )
+                                            })}
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </div>
-                            ))*/}
+                            ))}
                     </div>
                 </div>
             </nav>

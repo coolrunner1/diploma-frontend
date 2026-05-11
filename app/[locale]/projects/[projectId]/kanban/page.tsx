@@ -45,8 +45,9 @@ export default function KanbanPage() {
 
     useEffect(() => {
         if (!data) return;
-        setTasks(data.tasks);
         setStatuses(data.projectStatus);
+        setTasks(data.tasks);
+
     }, [data]);
 
     const [selectedTask, setSelectedTask] = useState<Task | null>(null);
