@@ -2,9 +2,14 @@ import {Task} from "@/types/task";
 import { v4 as uuidv4 } from 'uuid';
 import {MutationKey} from "@tanstack/query-core";
 import axiosClient from "@/api/axiosClient";
+import {QueryKeyObject} from "@/api/queryClient";
+import {ProjectBoard} from "@/types/project";
 
-export const getTasks = async (): Promise<Task[]> => {
-    return []
+export const getTasks = async({queryKey}: QueryKeyObject): Promise<Tasks[]> => {
+    const [_key, id] = queryKey;
+    const res = await axiosClient.get(`/projects/${id}/tasks`);
+
+    return res.data;
 }
 
 export const updateTaskStatus = async ({mutationKey}: {mutationKey: MutationKey}): Promise<void> => {
@@ -12,6 +17,9 @@ export const updateTaskStatus = async ({mutationKey}: {mutationKey: MutationKey}
 
     return await axiosClient.put(`/projects/${projectId}/tasks/${taskId}`, {statusId: newStatus});
 }
+
+
+
 /*
 export const getTasks = async (): Promise<Tasks[]> => {
     return new Promise((resolve) => {
