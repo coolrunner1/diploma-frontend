@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from "axios";
+import axios, {AxiosError, AxiosResponse} from "axios";
 //import {getToken, signOut} from "@/utils/tempAuth";
 
 const axiosClient = axios.create({
@@ -14,14 +14,23 @@ axiosClient.interceptors.response.use(
     function (response) {
         return response;
     },
-    function (error) {
-        const res: AxiosResponse = error.response;
-        if (res.status === 401) {
-            alert('Session expired');
-            //signOut();
-        }
+    function (error: AxiosError) {
+        const res = error.response;
         if (!res) return Promise.reject(error);
-        if (res.status === 400) {
+
+        switch (res.status) {
+            case 401:
+                alert('Session expired');
+                break;
+            case 500:
+                return Promise.reject("Errors.server-error");
+                break;
+            case 501:
+                alert('Not implemented');
+                break;
+
+        }
+        /*if (res.status === 400) {
             let errorMsg = "";
             if (res.data.details) {
                 res.data.details.forEach((item: any) => {
@@ -34,13 +43,7 @@ axiosClient.interceptors.response.use(
         }
         if (res.status === 409) {
             alert(res.data.message);
-        }
-        if (res.status === 501) {
-            alert('Not implemented');
-        }
-        if (res.status === 500) {
-            return Promise.reject("Errors.server-error");
-        }
+        }*/
         console.error("Looks like there was a problem. Status Code: " + res.status);
         console.error(error);
         return Promise.reject(error);

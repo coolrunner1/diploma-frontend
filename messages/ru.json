@@ -88,14 +88,14 @@
     "assignee": "Ответственный"
   },
   "ProjectHeader": {
-    "assignee": "Assignee",
-    "search": "Search tasks...",
-    "filter-by-type": "Filter by type",
-    "all-types": "All types",
-    "filter-by-status": "Filter by status",
-    "all-statuses": "All statuses",
-    "tags": "Tags",
-    "new-task": "New Task"
+    "assignee": "Ответственный",
+    "search": "Поиск задач...",
+    "filter-by-type": "Фильтр по типу",
+    "all-types": "Все типы",
+    "filter-by-status": "Фильтр по статусу",
+    "all-statuses": "Все статусы",
+    "tags": "Тэги",
+    "new-task": "Создать задачу"
   },
   "ListView": {
     "summary": "Задача"

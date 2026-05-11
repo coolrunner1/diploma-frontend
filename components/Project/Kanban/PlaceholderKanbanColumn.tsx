@@ -3,7 +3,7 @@ import {generateArrayOfUUIDs} from "@/utils/generators";
 export const PlaceholderKanbanColumn = () => {
     return (
             <div
-                className="flex flex-col w-80 bg-container rounded-lg border border-default-border"
+                className="flex flex-col h-full w-80 bg-container rounded-lg border border-default-border"
             >
                 <div className={`px-4 py-3 border-b border-default-border rounded-t-lg`}>
                     <div className="flex items-center justify-between">
@@ -12,7 +12,7 @@ export const PlaceholderKanbanColumn = () => {
                     </div>
                 </div>
                 <div className="flex-1 p-3 space-y-3 overflow-y-auto">
-                    {generateArrayOfUUIDs(4).map((el) => (
+                    {generateArrayOfUUIDs(5).map((el) => (
                         <div
                             key={el}
                             className="border bg-background border-default-border rounded-lg p-3 flex flex-col gap-2 hover:shadow-md transition-shadow group"

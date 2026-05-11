@@ -24,7 +24,7 @@ export const KanbanColumn = (props: KanbanColumnProps) => {
 
     return (
         <>
-            <div className="flex flex-col w-80 max-h-[80vh] overflow-scroll bg-container rounded-lg border border-default-border no-scrollbar" >
+            <div className="flex flex-col w-80 h-full overflow-scroll bg-container rounded-lg border border-default-border no-scrollbar" >
                 <div style={{backgroundColor: props.bgColor}} className={`px-4 py-3 border-b border-default-border rounded-t-lg`}>
                     <div className="flex items-center justify-between">
                         {!editStatus

@@ -4,7 +4,6 @@ import {Table, TableBody, TableHead, TableHeader, TableRow,} from '@/components/
 import {useParams} from "next/navigation";
 import {Task} from "@/types/task";
 import {useQuery} from "@tanstack/react-query";
-import {getTasks} from "@/api/tasks";
 import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
 import {NavBar} from "@/components/Global/Headers/NavBar";
 import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
@@ -121,12 +120,12 @@ export default function Page() {
                                         <PlaceholderListViewTask key={item}/>
                                     ))
                                 }
-                                {!isLoading && data?.data.tasks && data.data.tasks.map((task) => (
+                                {!isLoading && data?.tasks && data.tasks.map((task) => (
                                     <ListViewTask key={task.uuid} task={task} setSelectedTask={setSelectedTask}/>
                                 ))}
                             </TableBody>
                         </Table>
-                        {data?.data.tasks && data.data.tasks.length === 0 && (
+                        {data && data.tasks.length === 0 && (
                             <div className="text-center py-12 text-gray-400">
                                 No tasks found
                             </div>

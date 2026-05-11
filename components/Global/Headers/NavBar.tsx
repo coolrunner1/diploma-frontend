@@ -53,10 +53,7 @@ export const NavBar = (props: NavBarProps) => {
                         </div>
                     </div>
                 </header>
-
-                <main>
-                    {props.children}
-                </main>
+                {props.children}
             </div>
         </div>
     );

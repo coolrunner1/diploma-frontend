@@ -17,7 +17,7 @@ export const NewKanbanColumn = (props: NewKanbanColumnProps) => {
                 </>
             )}
             <div
-                className="w-80 flex max-h-[80vh] align-center justify-center bg-container rounded-lg border border-dashed border-default-border"
+                className="w-80 flex h-full align-center justify-center bg-container rounded-lg border border-dashed border-default-border"
                 onClick={() => setModal(true)}
             >
                 <span

@@ -12,9 +12,227 @@ import ReactFlow, {
     Handle
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import {useQuery} from "@tanstack/react-query";
-import {getTasks} from "@/api/tasks";
 import {Task} from "@/types/task";
+
+const projects = [
+    {
+        id: '1',
+        name: 'Marketing Website',
+        key: 'MW',
+        description: 'New marketing website redesign project',
+        icon: '🌐',
+    },
+    {
+        id: '2',
+        name: 'Mobile App',
+        key: 'MA',
+        description: 'iOS and Android mobile application',
+        icon: '📱',
+    },
+    {
+        id: '3',
+        name: 'API Platform',
+        key: 'API',
+        description: 'Backend API and infrastructure',
+        icon: '⚙️',
+    },
+];
+
+const tasks = [
+    {
+        id: 'MW-101',
+        title: 'Design new homepage layout',
+        description: 'Create a modern, responsive homepage design with hero section, features, and testimonials',
+        status: 'in-progress',
+        priority: 'high',
+        type: 'story',
+        assignee: {
+            name: 'Sarah Chen',
+            avatar: 'https://i.pravatar.cc/150?img=1',
+        },
+        reporter: {
+            name: 'John Smith',
+            avatar: 'https://i.pravatar.cc/150?img=2',
+        },
+        dueDate: '2026-04-15',
+        createdAt: '2026-03-20',
+        projectId: '1',
+        tags: ['design', 'frontend'],
+    },
+    {
+        id: 'MW-102',
+        title: 'Implement contact form',
+        description: 'Add a functional contact form with validation and email integration',
+        status: 'todo',
+        priority: 'medium',
+        type: 'task',
+        assignee: {
+            name: 'Mike Johnson',
+            avatar: 'https://i.pravatar.cc/150?img=3',
+        },
+        reporter: {
+            name: 'Sarah Chen',
+            avatar: 'https://i.pravatar.cc/150?img=1',
+        },
+        dueDate: '2026-04-18',
+        createdAt: '2026-03-22',
+        projectId: '1',
+        tags: ['frontend', 'forms'],
+        blockedBy: ['MW-101'], // Blocked by homepage design
+    },
+    {
+        id: 'MW-103',
+        title: 'Fix navigation menu on mobile',
+        description: 'Navigation menu not closing properly on mobile devices after clicking a link',
+        status: 'review',
+        priority: 'high',
+        type: 'bug',
+        assignee: {
+            name: 'Emily Davis',
+            avatar: 'https://i.pravatar.cc/150?img=4',
+        },
+        reporter: {
+            name: 'Mike Johnson',
+            avatar: 'https://i.pravatar.cc/150?img=3',
+        },
+        createdAt: '2026-03-25',
+        projectId: '1',
+        tags: ['bug', 'mobile'],
+    },
+    {
+        id: 'MW-104',
+        title: 'Optimize images for performance',
+        description: 'Compress and optimize all images to improve page load times',
+        status: 'todo',
+        priority: 'low',
+        type: 'task',
+        reporter: {
+            name: 'John Smith',
+            avatar: 'https://i.pravatar.cc/150?img=2',
+        },
+        createdAt: '2026-03-28',
+        projectId: '1',
+        tags: ['performance', 'optimization'],
+        blockedBy: ['MW-101'], // Blocked by homepage design
+    },
+    {
+        id: 'MW-105',
+        title: 'Add SEO meta tags',
+        description: 'Implement proper SEO meta tags across all pages',
+        status: 'backlog',
+        priority: 'medium',
+        type: 'task',
+        reporter: {
+            name: 'Sarah Chen',
+            avatar: 'https://i.pravatar.cc/150?img=1',
+        },
+        createdAt: '2026-03-30',
+        projectId: '1',
+        tags: ['seo', 'marketing'],
+        blockedBy: ['MW-101', 'MW-102'], // Blocked by homepage design and contact form
+    },
+    {
+        id: 'MW-106',
+        title: 'Set up analytics tracking',
+        description: 'Integrate Google Analytics and set up event tracking for key user interactions',
+        status: 'done',
+        priority: 'medium',
+        type: 'task',
+        assignee: {
+            name: 'Mike Johnson',
+            avatar: 'https://i.pravatar.cc/150?img=3',
+        },
+        reporter: {
+            name: 'John Smith',
+            avatar: 'https://i.pravatar.cc/150?img=2',
+        },
+        createdAt: '2026-03-15',
+        projectId: '1',
+        tags: ['analytics', 'tracking'],
+    },
+    {
+        id: 'MA-201',
+        title: 'Design onboarding flow',
+        description: 'Create user onboarding screens for first-time app users',
+        status: 'in-progress',
+        priority: 'high',
+        type: 'story',
+        assignee: {
+            name: 'Sarah Chen',
+            avatar: 'https://i.pravatar.cc/150?img=1',
+        },
+        reporter: {
+            name: 'John Smith',
+            avatar: 'https://i.pravatar.cc/150?img=2',
+        },
+        dueDate: '2026-04-20',
+        createdAt: '2026-03-18',
+        projectId: '2',
+        tags: ['design', 'ux'],
+    },
+    {
+        id: 'MA-202',
+        title: 'Implement push notifications',
+        description: 'Add push notification support for iOS and Android',
+        status: 'todo',
+        priority: 'high',
+        type: 'task',
+        assignee: {
+            name: 'Alex Rivera',
+            avatar: 'https://i.pravatar.cc/150?img=5',
+        },
+        reporter: {
+            name: 'Emily Davis',
+            avatar: 'https://i.pravatar.cc/150?img=4',
+        },
+        dueDate: '2026-04-25',
+        createdAt: '2026-03-21',
+        projectId: '2',
+        tags: ['mobile', 'notifications'],
+        blockedBy: ['MA-201'], // Blocked by onboarding flow design
+    },
+    {
+        id: 'API-301',
+        title: 'Upgrade database schema',
+        description: 'Update database schema to support new features and improve performance',
+        status: 'review',
+        priority: 'critical',
+        type: 'task',
+        assignee: {
+            name: 'David Lee',
+            avatar: 'https://i.pravatar.cc/150?img=6',
+        },
+        reporter: {
+            name: 'John Smith',
+            avatar: 'https://i.pravatar.cc/150?img=2',
+        },
+        dueDate: '2026-04-10',
+        createdAt: '2026-03-10',
+        projectId: '3',
+        tags: ['backend', 'database'],
+    },
+    {
+        id: 'API-302',
+        title: 'Add rate limiting',
+        description: 'Implement rate limiting to prevent API abuse',
+        status: 'in-progress',
+        priority: 'high',
+        type: 'task',
+        assignee: {
+            name: 'Alex Rivera',
+            avatar: 'https://i.pravatar.cc/150?img=5',
+        },
+        reporter: {
+            name: 'David Lee',
+            avatar: 'https://i.pravatar.cc/150?img=6',
+        },
+        createdAt: '2026-03-24',
+        projectId: '3',
+        tags: ['backend', 'security'],
+        blockedBy: ['API-301'], // Blocked by database upgrade
+    },
+];
+
 
 function TaskNode({ data }: { data: any }) {
     const getPriorityColor = (priority: string) => {
@@ -116,10 +334,6 @@ const nodeTypes = {
 };
 
 export default function BlockingTasks() {
-    const {data: tasks, refetch: refetchTasks} = useQuery({
-        queryKey: ["tasks"],
-        queryFn: getTasks,
-    });
 
     // Calculate blocking tasks and build graph
     const { nodes, edges, stats } = useMemo(() => {

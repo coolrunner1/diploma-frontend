@@ -4,20 +4,19 @@ import {useMutation, useQuery} from "@tanstack/react-query";
 import {KanbanColumn} from "@/components/Project/Kanban/KanbanColumn";
 import {Task} from "@/types/task";
 import {DragDropProvider} from "@dnd-kit/react";
-import {getStatuses} from "@/api/statuses";
 import {useEffect, useState} from "react";
 import {NavBar} from "@/components/Global/Headers/NavBar";
 import {useParams} from "next/navigation";
 import {NewKanbanColumn} from "@/components/Project/Kanban/NewKanbanColumn";
 import {PlaceholderKanbanColumn} from "@/components/Project/Kanban/PlaceholderKanbanColumn";
 import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
-import {getProjectBoard, triggerApiError} from "@/api/projects";
+import {getProjectBoard} from "@/api/projects";
 import {useStore} from "@/utils/store";
 import {ErrorPopupContainer} from "@/components/Global/Misc/PopupsContainer";
 import {AxiosErrorToMessage} from "@/utils/mappers";
 import {AxiosError} from "axios";
 import {generateArrayOfUUIDs} from "@/utils/generators";
-import {getTasks, updateTaskStatus} from "@/api/tasks";
+import {updateTaskStatus} from "@/api/tasks";
 import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
 import {ProjectStatus} from "@/types/project";
 
@@ -34,6 +33,7 @@ export default function KanbanPage() {
 
     useEffect(() => {
         if (error) {
+            console.log(error)
             pushError(AxiosErrorToMessage(error as AxiosError));
         }
     }, [error])
@@ -45,8 +45,8 @@ export default function KanbanPage() {
 
     useEffect(() => {
         if (!data) return;
-        setTasks(data.data.tasks);
-        setStatuses(data.data.projectStatus);
+        setTasks(data.tasks);
+        setStatuses(data.projectStatus);
     }, [data]);
 
     const [selectedTask, setSelectedTask] = useState<Task | null>(null);
@@ -78,14 +78,6 @@ export default function KanbanPage() {
         setTasks((prev) => [...prev, newTask]);
     };
 
-    if (!projectId) {
-        return (
-            <div className="flex items-center justify-center h-full">
-                <p className="text-gray-500">Project was not found</p>
-            </div>
-        );
-    }
-
     return (
         <>
             <ErrorPopupContainer/>
@@ -95,69 +87,69 @@ export default function KanbanPage() {
 
                 </div>*/}
 
-                <div className="flex flex-col h-full bg-background">
 
+                <div className="flex-1 overflow-x-auto h-full p-4 no-scrollbar">
+                    <div className="flex gap-4 h-full min-w-max">
+                        <DragDropProvider
+                            onDragStart={event => {
+                                /*console.log("drag start");
+                                console.log(event.operation.source?.type);
+                                /*if (event.operation.target) {
+                                    setActiveTask(event.active.data.current.task);
+                                    return;
+                                }*/
+                            }}
+                            onDragEnd={(event) => {
+                                if (event.canceled) return;
 
-                    {/* Board */}
-                    <div className="flex-1 overflow-x-auto p-4 no-scrollbar">
-                        <div className="flex gap-4 h-full min-w-max">
-                            <DragDropProvider
-                                onDragStart={event => {
-                                    /*console.log("drag start");
-                                    console.log(event.operation.source?.type);
-                                    /*if (event.operation.target) {
-                                        setActiveTask(event.active.data.current.task);
-                                        return;
-                                    }*/
-                                }}
-                                onDragEnd={(event) => {
-                                    if (event.canceled) return;
-
-                                    const {target, source} = event.operation;
-                                    updateTask({mutationKey: ["tasks", source?.id, target?.id]});
-                                    const newTasks = tasks;
-                                    newTasks.forEach((task: Task) => {
-                                        if (task.id === source?.id) {
-                                            if (!target?.id) return;
-                                            task.statusId = Number(target?.id);
-                                        }
-                                    });
-                                    setTasks(newTasks);
-                                    //refetchTasks();
-                                }}
-                            >
-
-                                {!statuses.length && isLoading &&
-                                    generateArrayOfUUIDs(5).map((el) =>
-                                        <div key={el}>
-                                            <PlaceholderKanbanColumn/>
-                                        </div>
-                                    )
-                                }
-                                {statuses.length && statuses.map(status =>
-                                    <KanbanColumn
-                                        key={status.uuid}
-                                        id={status.id}
-                                        title={status.title}
-                                        bgColor={status.bgColor}
-                                        tasks={tasks?.filter((task) => task.statusId === status.id)}
-                                        setSelectedTask={setSelectedTask}
-                                    />
-                                )}
-                                {statuses.length && <NewKanbanColumn/>}
-                            </DragDropProvider>
-                        </div>
+                                const {target, source} = event.operation;
+                                updateTask({mutationKey: ["tasks", projectId, source?.id, target?.id]});
+                                const newTasks = tasks;
+                                newTasks.forEach((task: Task) => {
+                                    if (task.id === source?.id) {
+                                        if (!target?.id) return;
+                                        task.statusId = Number(target?.id);
+                                    }
+                                });
+                                setTasks(newTasks);
+                                //refetchTasks();
+                            }}
+                        >
+                            {error && !data &&
+                                <div className="flex items-center justify-center h-full w-full">
+                                    <p className="text-gray-500">{error.message}</p>
+                                </div>
+                            }
+                            {!statuses.length && isLoading &&
+                                generateArrayOfUUIDs(5).map((el) =>
+                                    <div key={el}>
+                                        <PlaceholderKanbanColumn/>
+                                    </div>
+                                )
+                            }
+                            {statuses.length > 0 && statuses.map(status =>
+                                <KanbanColumn
+                                    key={status.uuid}
+                                    id={status.id}
+                                    title={status.title}
+                                    bgColor={status.bgColor}
+                                    tasks={tasks?.filter((task) => task.statusId === status.id)}
+                                    setSelectedTask={setSelectedTask}
+                                />
+                            )}
+                            {statuses.length > 0 && <NewKanbanColumn/>}
+                        </DragDropProvider>
                     </div>
-
-
-                    {selectedTask &&
-                        <TaskDetail
-                            task={selectedTask}
-                            setClosed={() => setSelectedTask(null)}
-                            onStatusChange={handleStatusChange}
-                        />
-                    }
                 </div>
+
+
+                {selectedTask &&
+                    <TaskDetail
+                        task={selectedTask}
+                        setClosed={() => setSelectedTask(null)}
+                        onStatusChange={handleStatusChange}
+                    />
+                }
             </NavBar>
 
 

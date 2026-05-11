@@ -1,24 +1,8 @@
-import {Status} from "@/types/task";
-import { v4 as uuidv4 } from 'uuid';
+import {ProjectStatus} from "@/types/project";
+import {QueryKeyObject} from "@/api/queryClient";
+import axiosClient from "@/api/axiosClient";
 
-export const getStatuses = async (): Promise<Status[]> => {
-    return new Promise((resolve, reject) => {
-        let statuses = localStorage.getItem("statuses");
-        if (!statuses) {
-            statuses = JSON.stringify([
-                {
-                    uuid: uuidv4(),
-                    name: "To Do",
-                },
-                {
-                    uuid: uuidv4(),
-                    name: "In Progress",
-                }
-            ]);
-            localStorage.setItem("statuses", JSON.stringify(statuses));
-        }
-        setTimeout(() => {
-            resolve(JSON.parse(JSON.parse(statuses)));
-        }, 1500);
-    });
+export const getStatuses = async ({queryKey}: QueryKeyObject): Promise<ProjectStatus[]> => {
+    const [_key, id] = queryKey;
+    return await axiosClient.get(`/projects/${id}/statuses`);
 }

@@ -7,7 +7,9 @@ export const triggerApiError = (): AxiosResponse<unknown, AxiosError> => {
     return axios.get()
 }
 
-export const getProjectBoard = ({queryKey}: QueryKeyObject): AxiosResponse<ProjectBoard, AxiosError> => {
+export const getProjectBoard = async({queryKey}: QueryKeyObject): Promise<ProjectBoard> => {
     const [_key, id] = queryKey;
-    return axiosClient.get(`/projects/${id}/board`)
+    const res = await axiosClient.get(`/projects/${id}/board`);
+
+    return res.data;
 }
