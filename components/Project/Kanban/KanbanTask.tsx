@@ -20,7 +20,7 @@ export const KanbanTask = (props: KanbanTaskProps) => {
     }, [locale]);
 
     const {ref} = useDraggable({
-        id: props.task.uuid,
+        id: props.task.id,
         type: "task",
     })
 
@@ -35,7 +35,7 @@ export const KanbanTask = (props: KanbanTaskProps) => {
                 <div className="flex flex-row min-w-0">
                     <div className={`min-w-1.5 h-1.5 m-auto mr-2 rounded-full ${priorityBgColors[props.task.priority]}`} />
                     <p className="text-sm line-clamp-2 group-hover:text-blue-600">
-                        {props.task.name}
+                        {props.task.title}
                     </p>
                 </div>
             </div>
@@ -48,8 +48,8 @@ export const KanbanTask = (props: KanbanTaskProps) => {
             */}
             <div className="flex flex-wrap gap-1 mb-3">
                 {props.task.tags && props.task.tags.slice(0, 2).map((tag, index) => (
-                    <Badge key={tag+index+props.task.uuid}>
-                        {tag}
+                    <Badge key={tag.uuid}>
+                        {tag.title}
                     </Badge>
                     ))
                 }

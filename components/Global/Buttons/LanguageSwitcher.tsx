@@ -3,11 +3,7 @@ import {useState} from "react";
 import {useTranslations} from "next-intl";
 import {usePathname} from "next/navigation";
 import {LucideLanguages} from "lucide-react";
-import {HeaderButton} from "@/components/Global/Buttons/HeaderButton";
-
-export type LanguageSwitcherProps = {
-    className?: string;
-}
+import {HeaderButtonContainer, HeaderButtonProps} from "./HeaderButtonContainer";
 
 const languages = [
     {
@@ -20,7 +16,7 @@ const languages = [
     }
 ]
 
-export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
+export const LanguageSwitcher = (props: HeaderButtonProps) => {
     const t = useTranslations();
 
     const pathname = usePathname();
@@ -30,11 +26,12 @@ export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
 
     return (
         <div className="block relative">
-            <HeaderButton
+            <HeaderButtonContainer
+                type={props.type}
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <LucideLanguages/>
-            </HeaderButton>
+            </HeaderButtonContainer>
             {isOpen && (
                 <div
                     className="flex flex-col absolute bg-container shadow-lg w-24 rounded-md"

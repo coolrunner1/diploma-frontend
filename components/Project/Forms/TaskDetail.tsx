@@ -12,7 +12,7 @@ import {BurgerContainer} from "@/components/Global/Modals/BurgerContainer";
 export type TaskDetailProps = {
     task: Task | null;
     setClosed: () => void;
-    onStatusChange?: (taskId: string, newStatus: Task['status']) => void;
+    onStatusChange?: (taskId: string, newStatus: Task['statusId']) => void;
 }
 
 const priorityLabels = {
@@ -42,7 +42,7 @@ export const TaskDetail = (props: TaskDetailProps) => {
                         <div className="flex items-center gap-2 mb-2">
                             <Badge>{typeLabels[props.task.type]}</Badge>
                         </div>
-                        <div className="text-2xl">{props.task.name}</div>
+                        <div className="text-2xl">{props.task.title}</div>
                     </div>
                     <Button variant="ghost" size="icon">
                         <MoreHorizontal className="w-4 h-4"/>
@@ -66,8 +66,8 @@ export const TaskDetail = (props: TaskDetailProps) => {
                                 {t('status')}
                             </label>
                             <Select
-                                value={props.task.status}
-                                onValueChange={(value) => props.onStatusChange?.(props.task.uuid, value as Task['status'])}
+                                value={""}
+                                onValueChange={(value) => props.onStatusChange?.(props?.task.uuid, value as Task['statusId'])}
                             >
                                 <SelectTrigger>
                                     <SelectValue/>
@@ -172,8 +172,8 @@ export const TaskDetail = (props: TaskDetailProps) => {
                         <h3 className="text-sm font-semibold mb-2">{t('labels')}</h3>
                         <div className="flex flex-wrap gap-2">
                             {props.task.tags && props.task.tags.map((tag) => (
-                                <Badge key={tag}>
-                                    {tag}
+                                <Badge key={tag.uuid}>
+                                    {tag.title}
                                 </Badge>
                             ))}
                         </div>

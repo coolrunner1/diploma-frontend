@@ -3,7 +3,7 @@ import {ReactNode, useState} from 'react';
 import {Button} from "@/components/Global/ui/button";
 import {ThemeSwitchButton} from "@/components/Global/Buttons/ThemeSwitchButton";
 import {LanguageSwitcher} from "@/components/Global/Buttons/LanguageSwitcher";
-import {HeaderButton} from "@/components/Global/Buttons/HeaderButton";
+import {HeaderButtonContainer} from "../Buttons/HeaderButtonContainer";
 import {SidebarContent} from "@/components/Global/Headers/SidebarContent";
 
 
@@ -45,11 +45,11 @@ export const NavBar = (props: NavBarProps) => {
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <ThemeSwitchButton/>
-                            <LanguageSwitcher/>
-                            <HeaderButton>
+                            <ThemeSwitchButton type={"regular"}/>
+                            <LanguageSwitcher type={"regular"}/>
+                            <HeaderButtonContainer>
                                 <Bell/>
-                            </HeaderButton>
+                            </HeaderButtonContainer>
                         </div>
                     </div>
                 </header>

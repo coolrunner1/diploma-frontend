@@ -87,6 +87,16 @@
     "priority": "Приоритет",
     "assignee": "Ответственный"
   },
+  "ProjectHeader": {
+    "assignee": "Assignee",
+    "search": "Search tasks...",
+    "filter-by-type": "Filter by type",
+    "all-types": "All types",
+    "filter-by-status": "Filter by status",
+    "all-statuses": "All statuses",
+    "tags": "Tags",
+    "new-task": "New Task"
+  },
   "ListView": {
     "summary": "Задача"
   }

@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import {LightModeSVG} from "@/components/Global/SVGs/LightModeSVG";
 import {DarkModeSVG} from "@/components/Global/SVGs/DarkModeSVG";
-import {HeaderButton} from "@/components/Global/Buttons/HeaderButton";
+import {HeaderButtonContainer, HeaderButtonProps} from "./HeaderButtonContainer";
 
-export const ThemeSwitchButton = () => {
+export const ThemeSwitchButton = (props: HeaderButtonProps) => {
     const [isDark, setIsDark] = useState(false);
 
     const onClick = () => {
@@ -21,7 +21,8 @@ export const ThemeSwitchButton = () => {
     }, []);
 
     return (
-        <HeaderButton
+        <HeaderButtonContainer
+            type={props.type}
             onClick={onClick}
         >
             {isDark
@@ -30,6 +31,6 @@ export const ThemeSwitchButton = () => {
                 :
                 <LightModeSVG/>
             }
-        </HeaderButton>
+        </HeaderButtonContainer>
     );
 }

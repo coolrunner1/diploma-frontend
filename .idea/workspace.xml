@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/blocking-tasks/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Auth/AuthFormContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Auth/AuthFormContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Buttons/HeaderButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Buttons/HeaderButtonContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Buttons/LanguageSwitcher.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Buttons/LanguageSwitcher.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Buttons/LogoButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Buttons/LogoButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Global/Buttons/ThemeSwitchButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Buttons/ThemeSwitchButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/providers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/utils/providers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Project/Kanban/NewKanbanColumn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Project/Kanban/NewKanbanColumn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -98,7 +109,8 @@
       <workItem from="1778230697148" duration="3310000" />
       <workItem from="1778266323271" duration="599000" />
       <workItem from="1778395942284" duration="20188000" />
-      <workItem from="1778423361758" duration="2262000" />
+      <workItem from="1778423361758" duration="6731000" />
+      <workItem from="1778502278378" duration="2106000" />
     </task>
     <servers />
   </component>

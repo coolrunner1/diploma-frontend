@@ -11,7 +11,7 @@ import {useParams} from "next/navigation";
 import {NewKanbanColumn} from "@/components/Project/Kanban/NewKanbanColumn";
 import {PlaceholderKanbanColumn} from "@/components/Project/Kanban/PlaceholderKanbanColumn";
 import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
-import {triggerApiError} from "@/api/projects";
+import {getProjectBoard, triggerApiError} from "@/api/projects";
 import {useStore} from "@/utils/store";
 import {ErrorPopupContainer} from "@/components/Global/Misc/PopupsContainer";
 import {AxiosErrorToMessage} from "@/utils/mappers";
@@ -19,13 +19,17 @@ import {AxiosError} from "axios";
 import {generateArrayOfUUIDs} from "@/utils/generators";
 import {getTasks, updateTaskStatus} from "@/api/tasks";
 import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
+import {ProjectStatus} from "@/types/project";
 
 export default function KanbanPage() {
+    const {projectId} = useParams();
     const pushError = useStore(state => state.pushMessage);
+    const [tasks, setTasks] = useState<Task[]>([]);
+    const [statuses, setStatuses] = useState<ProjectStatus[]>([]);
 
-    const {error, refetch: refetchError} = useQuery({
-        queryKey: ["errorTrigger"],
-        queryFn: triggerApiError
+    const {data, isLoading, isError, error} = useQuery({
+        queryFn: getProjectBoard,
+        queryKey: ["_board", projectId]
     })
 
     useEffect(() => {
@@ -35,28 +39,16 @@ export default function KanbanPage() {
     }, [error])
 
 
-    const [tasks, setTasks] = useState<Task[]>([]);
-
-    const {data: statuses, isLoading, isError} = useQuery({
-        queryKey: ["statuses"],
-        queryFn: getStatuses,
-    });
-
-    const {data: fetchedTasks, refetch: refetchTasks} = useQuery({
-        queryKey: ["tasks"],
-        queryFn: getTasks,
-    });
-
     const {mutate: updateTask} = useMutation({
         mutationFn: updateTaskStatus,
     });
 
     useEffect(() => {
-        if (!fetchedTasks) return;
-        setTasks(fetchedTasks);
-    }, [fetchedTasks]);
+        if (!data) return;
+        setTasks(data.data.tasks);
+        setStatuses(data.data.projectStatus);
+    }, [data]);
 
-    const {projectId} = useParams();
     const [selectedTask, setSelectedTask] = useState<Task | null>(null);
     /*const [searchQuery, setSearchQuery] = useState('');
     const [filterType, setFilterType] = useState<string>('all');*/
@@ -71,14 +63,14 @@ export default function KanbanPage() {
         return matchesSearch && matchesType;
     });*/
 
-    const handleStatusChange = (taskId: string, newStatus: Task['status']) => {
+    const handleStatusChange = (taskId: string, newStatus: Task['statusId']) => {
         setTasks((prev) =>
             prev.map((task) =>
-                task.uuid === taskId ? {...task, status: newStatus} : task
+                task.uuid === taskId ? {...task, statusId: newStatus} : task
             )
         );
         if (selectedTask && selectedTask.uuid === taskId) {
-            setSelectedTask({...selectedTask, status: newStatus});
+            setSelectedTask({...selectedTask, statusId: newStatus});
         }
     };
 
@@ -125,9 +117,9 @@ export default function KanbanPage() {
                                     updateTask({mutationKey: ["tasks", source?.id, target?.id]});
                                     const newTasks = tasks;
                                     newTasks.forEach((task: Task) => {
-                                        if (task.uuid === source?.id) {
+                                        if (task.id === source?.id) {
                                             if (!target?.id) return;
-                                            task.status = target?.id.toString();
+                                            task.statusId = Number(target?.id);
                                         }
                                     });
                                     setTasks(newTasks);
@@ -135,22 +127,24 @@ export default function KanbanPage() {
                                 }}
                             >
 
-                                {!statuses && isLoading &&
+                                {!statuses.length && isLoading &&
                                     generateArrayOfUUIDs(5).map((el) =>
                                         <div key={el}>
                                             <PlaceholderKanbanColumn/>
                                         </div>
                                     )
                                 }
-                                {statuses && statuses.length && statuses.map(status =>
+                                {statuses.length && statuses.map(status =>
                                     <KanbanColumn
                                         key={status.uuid}
-                                        name={status.name}
-                                        tasks={tasks?.filter((task) => task.status === status.name)}
+                                        id={status.id}
+                                        title={status.title}
+                                        bgColor={status.bgColor}
+                                        tasks={tasks?.filter((task) => task.statusId === status.id)}
                                         setSelectedTask={setSelectedTask}
                                     />
                                 )}
-                                {statuses && <NewKanbanColumn/>}
+                                {statuses.length && <NewKanbanColumn/>}
                             </DragDropProvider>
                         </div>
                     </div>

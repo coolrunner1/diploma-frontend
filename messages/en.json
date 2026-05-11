@@ -52,7 +52,7 @@
     "no-projects": "No projects yet",
     "title": "Project title",
     "description": "Project description",
-    "create-new-status": "Create new status"
+    "create-new-status": "Create a new status"
   },
   "Errors": {
     "too-short-3": "Minimum length is 3 symbols",
@@ -83,8 +83,18 @@
     "in-testing-tasks": "Tasks in testing",
     "rejected-tasks": "Rejected tasks",
     "done-tasks": "Finished tasks",
-    "priority": "Priority",
-    "assignee": "Assignee"
+    "priority": "Priority"
+  },
+  "ProjectHeader": {
+    "all-assignees": "All assignees",
+    "filter-by-assignee": "Filter by assignee",
+    "search": "Search tasks...",
+    "filter-by-type": "Filter by type",
+    "all-types": "All types",
+    "filter-by-status": "Filter by status",
+    "all-statuses": "All statuses",
+    "tags": "Tags",
+    "new-task": "New Task"
   },
   "ListView": {
     "summary": "Summary"

@@ -1,9 +1,4 @@
 "use client"
-  /*useEffect(() => {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          document.body.classList.add("dark");
-      }
-    }, []);*/
 
 import { Button } from '../../components/Global/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/Global/ui/card';
@@ -114,9 +109,6 @@ export default function Landing() {
                                 PM
                             </div>
                             <span className="font-bold text-xl">ProjectHub</span>
-                            <Badge className="ml-2 bg-green-100 text-green-700">
-                                Open Source
-                            </Badge>
                         </div>
 
                         {/* Desktop Navigation */}

@@ -2,8 +2,10 @@ import {SearchBar} from "@/components/Global/Inputs/SearchBar";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/Global/ui/select";
 import {Filter} from "lucide-react";
 import {useState} from "react";
+import {useTranslations} from "next-intl";
 
 export const ProjectHeader = () => {
+    const t = useTranslations("ProjectHeader");
     const [searchQuery, setSearchQuery] = useState('');
     const [filterType, setFilterType] = useState<string>('all');
 
@@ -16,7 +18,7 @@ export const ProjectHeader = () => {
         <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-md">
                 <SearchBar
-                    placeholder="Search tasks..."
+                    placeholder={t("search")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     keyPressHandler={() => {
@@ -27,10 +29,23 @@ export const ProjectHeader = () => {
             <Select value={filterType} onValueChange={setFilterType}>
                 <SelectTrigger className="w-40">
                     <Filter className="w-4 h-4 mr-2"/>
-                    <SelectValue placeholder="Filter by type"/>
+                    <SelectValue placeholder={t('filter-by-type')}/>
                 </SelectTrigger>
                 <SelectContent>
-                    <SelectItem value="all">All Types</SelectItem>
+                    <SelectItem value="all">{t("all-types")}</SelectItem>
+                    <SelectItem value="task">Task</SelectItem>
+                    <SelectItem value="bug">Bug</SelectItem>
+                    <SelectItem value="story">Story</SelectItem>
+                    <SelectItem value="epic">Epic</SelectItem>
+                </SelectContent>
+            </Select>
+            <Select value={filterType} onValueChange={setFilterType}>
+                <SelectTrigger className="w-40">
+                    <Filter className="w-4 h-4 mr-2"/>
+                    <SelectValue placeholder={t('filter-by-status')}/>
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="all">{t("all-statuses")}</SelectItem>
                     <SelectItem value="task">Task</SelectItem>
                     <SelectItem value="bug">Bug</SelectItem>
                     <SelectItem value="story">Story</SelectItem>

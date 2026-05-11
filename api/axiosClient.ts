@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from "axios";
 //import {getToken, signOut} from "@/utils/tempAuth";
 
 const axiosClient = axios.create({
-    baseURL: `http://localhost:4000/api/v1`,
+    baseURL: `http://localhost:8000/api/v1`,
     withCredentials: true,
     headers: {
         'Accept': 'application/json',

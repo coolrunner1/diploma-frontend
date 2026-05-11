@@ -14,6 +14,7 @@ import {generateArrayOfUUIDs} from "@/utils/generators";
 import {PlaceholderListViewTask} from "@/components/Project/ListView/PlaceholderListViewTask";
 import {v4 as uuidv4} from 'uuid';
 import {useTranslations} from "next-intl";
+import {getProjectBoard} from "@/api/projects";
 
 const tableHeader = [
     {
@@ -55,10 +56,10 @@ export default function Page() {
     const [filterType, setFilterType] = useState<string>('all');
     const t = useTranslations();
 
-    const {data: tasks, isLoading} = useQuery({
-        queryKey: ["tasks"],
-        queryFn: getTasks,
-    });
+    const {data, isLoading, isError, error} = useQuery({
+        queryFn: getProjectBoard,
+        queryKey: ["_board", projectId]
+    })
 
 
     //const project = projects.find((p) => p.id === projectId);
@@ -120,12 +121,12 @@ export default function Page() {
                                         <PlaceholderListViewTask key={item}/>
                                     ))
                                 }
-                                {!isLoading && tasks && tasks.map((task) => (
+                                {!isLoading && data?.data.tasks && data.data.tasks.map((task) => (
                                     <ListViewTask key={task.uuid} task={task} setSelectedTask={setSelectedTask}/>
                                 ))}
                             </TableBody>
                         </Table>
-                        {tasks && tasks.length === 0 && (
+                        {data?.data.tasks && data.data.tasks.length === 0 && (
                             <div className="text-center py-12 text-gray-400">
                                 No tasks found
                             </div>

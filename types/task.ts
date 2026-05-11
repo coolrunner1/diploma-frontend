@@ -1,22 +1,34 @@
-export type Status = {
-  uuid: string,
-  name: string,
-};
+import {User} from "@/types/user";
+import {ProjectStatus} from "@/types/project";
 
 export type Task = {
+    id: number;
     uuid: string;
-    name: string;
-    description: string;
-    status: string;
+    title: string;
+    description?: string;
+    commentSummary?: string;
+
+    userId: number;
+    statusId: number;
+    messageCount: number;
+    projectId: number;
+    position: number;
+
     type: "task" | "bug" | "story" | "epic";
     priority: "low" | "medium" | "high" | "critical";
-    tags?: string[];
-    messageCount: number;
+
+    tags: Tag[] | null;
+
+    blockedBy: number;
+
     startTimestamp: string;
     endTimestamp: string;
-}
 
-/*export type Tasks = {
-    status: string;
-    tasks: Task[];
-}*/
+    assignee: User;
+    status: ProjectStatus;
+};
+
+export type Tag = {
+    uuid: string;
+    title: string;
+};

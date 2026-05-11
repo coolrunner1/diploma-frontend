@@ -25,19 +25,19 @@ export const ListViewTask = (props: ListViewTaskProps) => {
             </TableCell>
             <TableCell>
                 <div>
-                    <p className="font-medium">{props.task.name}</p>
+                    <p className="font-medium">{props.task.title}</p>
                     <div className="flex flex-wrap gap-1 mt-1">
                         {props.task?.tags && props.task.tags.slice(0, 2).map((tag) => (
-                            <Badge key={tag}>
-                                {tag}
+                            <Badge key={tag.uuid}>
+                                {tag.title}
                             </Badge>
                         ))}
                     </div>
                 </div>
             </TableCell>
             <TableCell>
-                <Badge style={{backgroundColor: stringToHexColor(props.task.status)+"a0"}}>
-                    {props.task.status}
+                <Badge style={{backgroundColor: props.task.status.bgColor}}>
+                    {props.task.status.title}
                 </Badge>
             </TableCell>
             <TableCell>

@@ -11,8 +11,8 @@ export const AuthFormContainer = (props: {children: ReactNode}) => {
             <header className="p-4 flex items-center justify-between">
                 <LogoButton/>
                 <div className="flex items-center gap-2">
-                    <LanguageSwitcher />
-                    <ThemeSwitchButton/>
+                    <LanguageSwitcher type={"big"}/>
+                    <ThemeSwitchButton type={"big"}/>
                 </div>
             </header>
 
