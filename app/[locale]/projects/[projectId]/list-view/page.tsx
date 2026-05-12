@@ -14,6 +14,7 @@ import {PlaceholderListViewTask} from "@/components/Project/ListView/Placeholder
 import {v4 as uuidv4} from 'uuid';
 import {useTranslations} from "next-intl";
 import {getProjectBoard} from "@/api/projects";
+import {useQueryWithErrorQueue} from "@/hooks/useQueryWithErrorQueue";
 
 const tableHeader = [
     {
@@ -55,10 +56,10 @@ export default function Page() {
     const [filterType, setFilterType] = useState<string>('all');
     const t = useTranslations();
 
-    const {data, isLoading, isError, error} = useQuery({
+    const {data, isLoading, isError} = useQueryWithErrorQueue({
         queryFn: getProjectBoard,
         queryKey: ["_board", projectId]
-    })
+    });
 
 
     //const project = projects.find((p) => p.id === projectId);
@@ -96,7 +97,6 @@ export default function Page() {
 
     return (
         <div className="flex flex-col h-full bg-background">
-            <ErrorPopupContainer/>
             <NavBar>
                 <ProjectHeader/>
                 <div className="flex-1 overflow-auto p-4">

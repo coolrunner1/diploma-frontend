@@ -19,25 +19,17 @@ import {generateArrayOfUUIDs} from "@/utils/generators";
 import {updateTaskStatus} from "@/api/tasks";
 import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
 import {ProjectStatus} from "@/types/project";
+import {useQueryWithErrorQueue} from "@/hooks/useQueryWithErrorQueue";
 
 export default function KanbanPage() {
     const {projectId} = useParams();
-    const pushError = useStore(state => state.pushMessage);
     const [tasks, setTasks] = useState<Task[]>([]);
     const [statuses, setStatuses] = useState<ProjectStatus[]>([]);
 
-    const {data, isLoading, isError, error} = useQuery({
+    const {data, isLoading, isError} = useQueryWithErrorQueue({
         queryFn: getProjectBoard,
         queryKey: ["_board", projectId]
-    })
-
-    useEffect(() => {
-        if (error) {
-            console.log(error)
-            pushError(AxiosErrorToMessage(error as AxiosError));
-        }
-    }, [error])
-
+    });
 
     const {mutate: updateTask} = useMutation({
         mutationFn: updateTaskStatus,
@@ -81,7 +73,6 @@ export default function KanbanPage() {
 
     return (
         <>
-            <ErrorPopupContainer/>
             <NavBar>
                 <ProjectHeader/>
                 {/*<div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
@@ -116,9 +107,9 @@ export default function KanbanPage() {
                                 //refetchTasks();
                             }}
                         >
-                            {error && !data &&
+                            {isError && !data &&
                                 <div className="flex items-center justify-center h-full w-full">
-                                    <p className="text-gray-500">{error.message}</p>
+                                    <p className="text-gray-500">Errors.something-wrong</p>
                                 </div>
                             }
                             {!statuses.length && isLoading &&

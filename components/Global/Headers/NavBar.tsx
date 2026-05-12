@@ -3,8 +3,9 @@ import {ReactNode, useState} from 'react';
 import {Button} from "@/components/Global/ui/button";
 import {ThemeSwitchButton} from "@/components/Global/Buttons/ThemeSwitchButton";
 import {LanguageSwitcher} from "@/components/Global/Buttons/LanguageSwitcher";
-import {HeaderButtonContainer} from "../Buttons/HeaderButtonContainer";
+import {HeaderButtonContainer} from "@/components/Global/Buttons/HeaderButtonContainer";
 import {SidebarContent} from "@/components/Global/Headers/SidebarContent";
+import { ErrorPopupContainer } from "@/components/Global/Misc/PopupsContainer";
 
 
 export type NavBarProps = {

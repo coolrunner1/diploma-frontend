@@ -7,7 +7,7 @@ export const ErrorPopupContainer = () => {
     const popMessage = useStore(state => state.popMessage);
 
     return (
-        <div className="fixed w-screen h-screen flex pointer-events-none">
+        <div className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen flex pointer-events-none">
             <div className="flex flex-col gap-3 p-2 ml-auto mt-auto max-w-xl">
                 {messages.length > 0 && messages.map((error) => (
                     <Popup
