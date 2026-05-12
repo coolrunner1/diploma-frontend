@@ -11,3 +11,10 @@ export const priorityTextColors = {
     high: 'text-orange-500',
     critical: 'text-red-500',
 };
+
+export const priorityBorderColors = {
+    low: 'border-blue-500',
+    medium: 'border-yellow-500',
+    high: 'border-orange-500',
+    critical: 'border-red-500',
+};

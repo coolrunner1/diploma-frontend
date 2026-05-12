@@ -5,7 +5,7 @@ import axiosClient from "@/api/axiosClient";
 import {QueryKeyObject} from "@/api/queryClient";
 import {ProjectBoard} from "@/types/project";
 
-export const getTasks = async({queryKey}: QueryKeyObject): Promise<Tasks[]> => {
+export const getTasks = async({queryKey}: QueryKeyObject): Promise<Task[]> => {
     const [_key, id] = queryKey;
     const res = await axiosClient.get(`/projects/${id}/tasks`);
 

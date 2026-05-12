@@ -32,3 +32,8 @@ export type Tag = {
     uuid: string;
     title: string;
 };
+
+export type TaskNodeData = Task & {
+    isBlocker: boolean;
+    emphasized: boolean;
+}

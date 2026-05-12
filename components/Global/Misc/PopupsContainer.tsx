@@ -1,8 +1,7 @@
 import {useStore} from "@/utils/store";
 import {Popup} from "./Popup";
-import {useEffect} from "react";
 
-export const ErrorPopupContainer = () => {
+export const PopupsContainer = () => {
     const messages = useStore(state => state.messageQueue);
     const popMessage = useStore(state => state.popMessage);
 

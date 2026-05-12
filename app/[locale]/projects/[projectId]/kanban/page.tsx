@@ -1,6 +1,6 @@
 "use client"
 
-import {useMutation, useQuery} from "@tanstack/react-query";
+import {useMutation} from "@tanstack/react-query";
 import {KanbanColumn} from "@/components/Project/Kanban/KanbanColumn";
 import {Task} from "@/types/task";
 import {DragDropProvider} from "@dnd-kit/react";
@@ -11,10 +11,6 @@ import {NewKanbanColumn} from "@/components/Project/Kanban/NewKanbanColumn";
 import {PlaceholderKanbanColumn} from "@/components/Project/Kanban/PlaceholderKanbanColumn";
 import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
 import {getProjectBoard} from "@/api/projects";
-import {useStore} from "@/utils/store";
-import {ErrorPopupContainer} from "@/components/Global/Misc/PopupsContainer";
-import {AxiosErrorToMessage} from "@/utils/mappers";
-import {AxiosError} from "axios";
 import {generateArrayOfUUIDs} from "@/utils/generators";
 import {updateTaskStatus} from "@/api/tasks";
 import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
@@ -112,14 +108,14 @@ export default function KanbanPage() {
                                     <p className="text-gray-500">Errors.something-wrong</p>
                                 </div>
                             }
-                            {!statuses.length && isLoading &&
+                            {!statuses?.length && isLoading &&
                                 generateArrayOfUUIDs(5).map((el) =>
                                     <div key={el}>
                                         <PlaceholderKanbanColumn/>
                                     </div>
                                 )
                             }
-                            {statuses.length > 0 && statuses.map(status =>
+                            {statuses?.length > 0 && statuses.map(status =>
                                 <KanbanColumn
                                     key={status.uuid}
                                     id={status.id}
@@ -129,7 +125,7 @@ export default function KanbanPage() {
                                     setSelectedTask={setSelectedTask}
                                 />
                             )}
-                            {statuses.length > 0 && <NewKanbanColumn/>}
+                            {statuses?.length > 0 && <NewKanbanColumn/>}
                         </DragDropProvider>
                     </div>
                 </div>

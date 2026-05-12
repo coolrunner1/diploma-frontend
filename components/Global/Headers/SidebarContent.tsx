@@ -23,7 +23,7 @@ import {LogoButton} from "@/components/Global/Buttons/LogoButton";
 import {useTranslations} from "next-intl";
 import {Avatar, AvatarFallback} from "@/components/Global/ui/avatar";
 import {useQuery} from "@tanstack/react-query";
-import {getProjectBoard, getProjects} from "@/api/projects";
+import {getProjects} from "@/api/projects";
 
 export type SidebarContentProps = {
     setClosed: () => void
@@ -96,7 +96,7 @@ export const SidebarContent = (props: SidebarContentProps) => {
                                                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
                                                     Number(projectId) === project.id
                                                         ? 'bg-blue-50 text-blue-700'
-                                                        : 'hover:bg-gray-100'
+                                                        : 'hover:bg-hover'
                                                 }`}
                                             >
                                                 <span className="flex-1 text-left text-sm font-medium truncate">

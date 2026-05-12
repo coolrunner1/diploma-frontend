@@ -3,7 +3,7 @@
 import {queryClient} from "@/api/queryClient";
 import {QueryClientProvider} from "@tanstack/react-query";
 import {ReactNode, useEffect} from "react";
-import {ErrorPopupContainer} from "@/components/Global/Misc/PopupsContainer";
+import {PopupsContainer} from "@/components/Global/Misc/PopupsContainer";
 
 export default function Providers({ children }: { children: ReactNode }) {
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function Providers({ children }: { children: ReactNode }) {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <ErrorPopupContainer/>
+            <PopupsContainer/>
             {children}
         </QueryClientProvider>
     );
