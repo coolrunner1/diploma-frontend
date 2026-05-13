@@ -5,6 +5,7 @@ import {Task} from "@/types/task";
 import {priorityTextColors} from "@/constants/colors";
 import {useParams} from "next/navigation";
 import {Badge} from "@/components/Global/Misc/Badge";
+import {useTranslations} from "next-intl";
 
 export type ListViewTaskProps = {
     task: Task;
@@ -12,6 +13,7 @@ export type ListViewTaskProps = {
 }
 
 export const ListViewTask = (props: ListViewTaskProps) => {
+    const t = useTranslations()
     const params = useParams();
     const locale = params.locale;
 
@@ -43,7 +45,7 @@ export const ListViewTask = (props: ListViewTaskProps) => {
             <TableCell>
                 <div className="flex items-center gap-2">
                     <AlertCircle className={`w-4 h-4 ${priorityTextColors[props.task.priority]}`} />
-                    <span className="text-sm capitalize">{props.task.priority}</span>
+                    <span className="text-sm capitalize">{t(`Tasks.Priorities.${props.task.priority}`)}</span>
                 </div>
             </TableCell>
             <TableCell>

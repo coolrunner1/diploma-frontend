@@ -22,12 +22,15 @@ import {getTasks} from "@/api/tasks";
 import {useQueryWithErrorQueue} from "@/hooks/useQueryWithErrorQueue";
 import {TaskNode} from "@/components/Project/BlockingTasksMap/TaskNode";
 import {generateArrayOfUUIDs} from "@/utils/generators";
+import {useTranslations} from "next-intl";
 
 const nodeTypes = {
     taskNode: TaskNode,
 };
 
 export default function BlockingTasks() {
+    const t = useTranslations("BlockingTasks")
+
     const {projectId} = useParams();
 
     const searchParams = useSearchParams();
@@ -51,20 +54,11 @@ export default function BlockingTasks() {
             };
         }
 
-        // Adjust this depending on your actual ProjectStatus structure
-        const isDoneStatus = (task: Task) => {
-            return (
-                task.status?.title?.toLowerCase() === "done" ||
-                task.status?.title?.toLowerCase() === "completed"
-            );
-        };
-
-        const incompleteTasks = tasks.filter((t) => !isDoneStatus(t));
+        const incompleteTasks = tasks.filter((t) => !t.status.final);
 
         const blockingTaskIds = new Set<number>();
         const allRelatedTaskIds = new Set<number>();
 
-        // blockerId -> blocked tasks[]
         const blockingMap = new Map<number, Task[]>();
 
         incompleteTasks.forEach((task) => {
@@ -72,7 +66,7 @@ export default function BlockingTasks() {
 
             const blocker = tasks.find((t) => t.id === task.blockedBy);
 
-            if (blocker && !isDoneStatus(blocker)) {
+            if (blocker && !blocker.status.final) {
                 blockingTaskIds.add(blocker.id);
 
                 allRelatedTaskIds.add(blocker.id);
@@ -152,7 +146,7 @@ export default function BlockingTasks() {
 
             if (
                 blocker &&
-                !isDoneStatus(blocker) &&
+                !blocker.status.final &&
                 allRelatedTaskIds.has(blocker.id)
             ) {
                 graphEdges.push({
@@ -205,10 +199,10 @@ export default function BlockingTasks() {
                 <div className="p-6 border-b">
                     <div className="max-w-7xl mx-auto">
                         <div className="flex items-center gap-3 mb-2">
-                            <h1 className="text-3xl font-bold">Blocking Tasks</h1>
+                            <h1 className="text-3xl font-bold">{t("blocking-tasks")}</h1>
                         </div>
                         <p className="mb-4">
-                            Visual dependency graph showing tasks that are preventing other tasks from being completed
+                            {t("description")}
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -220,19 +214,19 @@ export default function BlockingTasks() {
                                 <>
                                     <Card>
                                         <CardHeader className="pb-3">
-                                            <CardDescription>Total Blocking Tasks</CardDescription>
+                                            <CardDescription>{t("total-blocking")}</CardDescription>
                                             <CardTitle className="text-3xl">{totalBlockers}</CardTitle>
                                         </CardHeader>
                                     </Card>
                                     <Card>
                                         <CardHeader className="pb-3">
-                                            <CardDescription>Tasks Being Blocked</CardDescription>
+                                            <CardDescription>{t("total-blocked")}</CardDescription>
                                             <CardTitle className="text-3xl">{blockedTasks}</CardTitle>
                                         </CardHeader>
                                     </Card>
                                     <Card>
                                         <CardHeader className="pb-3">
-                                            <CardDescription>Critical Blockers</CardDescription>
+                                            <CardDescription>{t("total-critical")}</CardDescription>
                                             <CardTitle className="text-3xl">{criticalBlockers}</CardTitle>
                                         </CardHeader>
                                     </Card>
@@ -250,8 +244,8 @@ export default function BlockingTasks() {
                                 <CardContent className="py-12 text-center">
                                     <div className="flex flex-col items-center gap-2 text-gray-500">
                                         <AlertCircle className="w-12 h-12"/>
-                                        <p className="text-lg font-medium">No blocking tasks</p>
-                                        <p className="text-sm">All tasks are either done or not blocking anything</p>
+                                        <p className="text-lg font-medium">{t("not-found")}</p>
+                                        <p className="text-sm">{t("not-found-description")}</p>
                                     </div>
                                 </CardContent>
                             </Card>

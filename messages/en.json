@@ -18,6 +18,10 @@
   "update-success": "Updated successfully",
   "type": "Type",
   "due-date": "Due date",
+  "board-view": "Board view",
+  "list-view": "List view",
+  "calendar": "Calendar",
+  "stats": "Stats",
   "Landing": {
     "manage-projects": "Manage Projects",
     "beautifully": "Beautifully",
@@ -83,7 +87,15 @@
     "in-testing-tasks": "Tasks in testing",
     "rejected-tasks": "Rejected tasks",
     "done-tasks": "Finished tasks",
-    "priority": "Priority"
+    "priority": "Priority",
+    "assignee": "Assignee",
+    "unassigned": "Unassigned",
+    "Priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    }
   },
   "ProjectHeader": {
     "all-assignees": "All assignees",
@@ -95,6 +107,16 @@
     "all-statuses": "All statuses",
     "tags": "Tags",
     "new-task": "New Task"
+  },
+  "BlockingTasks": {
+    "blocking-tasks": "Blocking Tasks",
+    "blocker": "Blocker",
+    "description": "Visual dependency graph showing tasks that are preventing other tasks from being completed",
+    "total-blocking": "Total Blocking Tasks",
+    "total-blocked": "Tasks Being Blocked",
+    "total-critical": "Critical Blockers",
+    "not-found": "No blocking tasks",
+    "not-found-description": "All tasks are either done or not blocking anything"
   },
   "ListView": {
     "summary": "Summary"

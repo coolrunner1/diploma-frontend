@@ -3,8 +3,11 @@ import {Handle, Position} from "reactflow";
 import {priorityBorderColors} from "@/constants/colors";
 import {Badge} from "@/components/Global/Misc/Badge";
 import {Lock} from "lucide-react";
+import {useTranslations} from "next-intl";
 
 export const TaskNode = ({data}: { data: TaskNodeData }) => {
+    const t = useTranslations();
+
     return (
         <>
             <Handle
@@ -25,7 +28,7 @@ export const TaskNode = ({data}: { data: TaskNodeData }) => {
                             className="flex bg-orange-100 text-orange-700 text-xs"
                         >
                             <Lock className="w-3 h-3 mr-1 my-auto"/>
-                            Blocker
+                            {t("BlockingTasks.blocker")}
                         </Badge>
                     )}
                 </div>
@@ -40,15 +43,18 @@ export const TaskNode = ({data}: { data: TaskNodeData }) => {
                     </Badge>
 
                     <Badge className="text-xs">
-                        {data.priority}
+                        {t(`Tasks.Priorities.${data.priority}`)}
                     </Badge>
                 </div>
 
-                {data.assignee && (
-                    <div className="mt-2 text-xs text-gray-600 truncate">
-                        {data.assignee.surname + ' ' + data.assignee.name}
-                    </div>
-                )}
+                <div className="mt-2 text-xs text-gray-600 truncate">
+                    {data.assignee
+                        ?
+                        data.assignee.surname + ' ' + data.assignee.name
+                        :
+                        t('Tasks.unassigned')
+                    }
+                </div>
             </div>
 
             <Handle
