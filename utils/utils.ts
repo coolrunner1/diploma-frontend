@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { ru } from "date-fns/locale";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -34,3 +35,28 @@ export const stringToHexColor = (str: string): string => {
   const hex = colorValue.toString(16).padStart(6, "0");
   return `#${hex}`;
 }
+
+export const ruNominative = {
+  ...ru,
+  localize: {
+    ...ru.localize,
+    month: (n: number) => {
+      const months = [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь",
+      ];
+
+      return months[n];
+    },
+  },
+};

@@ -5,7 +5,7 @@ import {
     Home,
     LayoutGrid,
     List,
-    Lock,
+    Lock, MapPin,
     Settings,
     SidebarClose,
     Users,
@@ -39,6 +39,7 @@ const projectNavigation = [
     {name: 'list-view', href: `list-view`, icon: List},
     {name: 'calendar', href: `calendar`, icon: Calendar},
     {name: 'stats', href: `stats`, icon: BarChart3},
+    {name: 'timeline', href: `timeline`, icon: MapPin},
     {name: 'Navbar.blocking-tasks', href: `blocking-tasks`, icon: Lock},
     {name: 'team', href: `team`, icon: Users},
     {name: 'settings', href: `settings`, icon: Settings},
@@ -47,7 +48,7 @@ const projectNavigation = [
 export const SidebarContent = (props: SidebarContentProps) => {
     const {pathname, projectId} = useParams();
 
-    const {data: projects, isLoading, isError, error} = useQuery({
+    const {data: projects, isLoading} = useQuery({
         queryFn: getProjects,
         queryKey: ["_projects", projectId]
     })

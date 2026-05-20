@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/list-view/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/list-view/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/timeline/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/ProjectLane.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/RoadmapHeader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/RoadmapLegend.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/RoadmapStats.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/TaskBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/TimelineHeader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/roadmapUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tasks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/tasks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Global/Headers/SidebarContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Headers/SidebarContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Modals/BurgerContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Modals/BurgerContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,11 +118,23 @@
       <workItem from="1778652185152" duration="2299000" />
       <workItem from="1778662038994" duration="1808000" />
       <workItem from="1778957879602" duration="1223000" />
-      <workItem from="1779005615525" duration="8016000" />
+      <workItem from="1779005615525" duration="16915000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx</url>
+          <line>33</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

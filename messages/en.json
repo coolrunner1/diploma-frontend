@@ -22,6 +22,7 @@
   "list-view": "List view",
   "calendar": "Calendar",
   "stats": "Stats",
+  "timeline": "Timeline",
   "Landing": {
     "manage-projects": "Manage Projects",
     "beautifully": "Beautifully",
@@ -91,6 +92,7 @@
     "priority": "Priority",
     "assignee": "Assignee",
     "unassigned": "Unassigned",
+    "total": "Total Tasks",
     "Priorities": {
       "low": "Low",
       "medium": "Medium",
@@ -118,6 +120,10 @@
     "total-critical": "Critical Blockers",
     "not-found": "No blocking tasks",
     "not-found-description": "All tasks are either done or not blocking anything"
+  },
+  "Timeline": {
+    "roadmap": "Product Roadmap",
+    "description": "Strategic planning timeline"
   },
   "ListView": {
     "summary": "Summary"

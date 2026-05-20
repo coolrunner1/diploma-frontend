@@ -20,9 +20,11 @@ import {SomethingWentWrongText} from "@/components/Global/Misc/SomethingWentWron
 
 export default function KanbanPage() {
     const {projectId} = useParams();
+    const searchParams = useSearchParams();
     const [tasks, setTasks] = useState<Task[]>([]);
     const [statuses, setStatuses] = useState<ProjectStatus[]>([]);
-    const searchParams = useSearchParams();
+    const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+
 
     const {data, isLoading, isError} = useQueryWithErrorQueue({
         queryFn: getProjectBoard,
@@ -39,20 +41,6 @@ export default function KanbanPage() {
         setTasks(data.tasks);
 
     }, [data]);
-
-    const [selectedTask, setSelectedTask] = useState<Task | null>(null);
-    /*const [searchQuery, setSearchQuery] = useState('');
-    const [filterType, setFilterType] = useState<string>('all');*/
-
-    //const project = projects.find((p) => p.id === projectId);
-    //const projectTasks = tasks.filter((task) => task.projectId === projectId);
-
-    /*const filteredTasks = projectTasks.filter((task) => {
-        const matchesSearch = task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            task.id.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesType = filterType === 'all' || task.type === filterType;
-        return matchesSearch && matchesType;
-    });*/
 
     const handleStatusChange = (taskId: string, newStatus: Task['statusId']) => {
         setTasks((prev) =>
