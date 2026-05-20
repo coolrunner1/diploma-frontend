@@ -23,6 +23,7 @@ import {useQueryWithErrorQueue} from "@/hooks/useQueryWithErrorQueue";
 import {TaskNode} from "@/components/Project/BlockingTasksMap/TaskNode";
 import {generateArrayOfUUIDs} from "@/utils/generators";
 import {useTranslations} from "next-intl";
+import {SomethingWentWrongText} from "@/components/Global/Misc/SomethingWentWrongText";
 
 const nodeTypes = {
     taskNode: TaskNode,
@@ -195,6 +196,9 @@ export default function BlockingTasks() {
 
     return (
         <NavBar>
+            {isError && !tasks &&
+                <SomethingWentWrongText/>
+            }
             <div className="h-full flex flex-col">
                 <div className="p-6 border-b">
                     <div className="max-w-7xl mx-auto">

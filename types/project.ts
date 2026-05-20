@@ -13,7 +13,7 @@ export type Project = {
 }
 
 export type ProjectBoard = Project & {
-    projectStatus: ProjectStatus[];
+    statuses: ProjectStatus[];
     tasks: Task[];
 };
 

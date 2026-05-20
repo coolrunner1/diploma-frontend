@@ -66,7 +66,8 @@
     "passwords-no-match": "Passwords don't match",
     "failed-delete": "Failed to delete",
     "has already been taken": "Has already been taken",
-    "server-error": "Server error"
+    "server-error": "Server error",
+    "something-wrong": "Something went wrong"
   },
   "Tasks": {
     "title": "Title",

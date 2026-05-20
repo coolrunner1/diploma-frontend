@@ -6,7 +6,7 @@ import {Task} from "@/types/task";
 import {DragDropProvider} from "@dnd-kit/react";
 import {useEffect, useState} from "react";
 import {NavBar} from "@/components/Global/Headers/NavBar";
-import {useParams} from "next/navigation";
+import {useParams, useSearchParams} from "next/navigation";
 import {NewKanbanColumn} from "@/components/Project/Kanban/NewKanbanColumn";
 import {PlaceholderKanbanColumn} from "@/components/Project/Kanban/PlaceholderKanbanColumn";
 import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
@@ -16,15 +16,17 @@ import {updateTaskStatus} from "@/api/tasks";
 import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
 import {ProjectStatus} from "@/types/project";
 import {useQueryWithErrorQueue} from "@/hooks/useQueryWithErrorQueue";
+import {SomethingWentWrongText} from "@/components/Global/Misc/SomethingWentWrongText";
 
 export default function KanbanPage() {
     const {projectId} = useParams();
     const [tasks, setTasks] = useState<Task[]>([]);
     const [statuses, setStatuses] = useState<ProjectStatus[]>([]);
+    const searchParams = useSearchParams();
 
     const {data, isLoading, isError} = useQueryWithErrorQueue({
         queryFn: getProjectBoard,
-        queryKey: ["_board", projectId]
+        queryKey: ["_board", projectId, searchParams.get("search"), searchParams.get("type"), searchParams.get("status")]
     });
 
     const {mutate: updateTask} = useMutation({
@@ -33,7 +35,7 @@ export default function KanbanPage() {
 
     useEffect(() => {
         if (!data) return;
-        setStatuses(data.projectStatus);
+        setStatuses(data.statuses);
         setTasks(data.tasks);
 
     }, [data]);
@@ -71,11 +73,6 @@ export default function KanbanPage() {
         <>
             <NavBar>
                 <ProjectHeader/>
-                {/*<div className={"flex flex-row flex-wrap gap-5 transition-all duration-200"}>
-
-                </div>*/}
-
-
                 <div className="flex-1 overflow-x-auto h-full p-4 no-scrollbar">
                     <div className="flex gap-4 h-full min-w-max">
                         <DragDropProvider
@@ -104,18 +101,16 @@ export default function KanbanPage() {
                             }}
                         >
                             {isError && !data &&
-                                <div className="flex items-center justify-center h-full w-full">
-                                    <p className="text-gray-500">Errors.something-wrong</p>
-                                </div>
+                                <SomethingWentWrongText/>
                             }
-                            {!statuses?.length && isLoading &&
+                            {isLoading &&
                                 generateArrayOfUUIDs(5).map((el) =>
                                     <div key={el}>
                                         <PlaceholderKanbanColumn/>
                                     </div>
                                 )
                             }
-                            {statuses?.length > 0 && statuses.map(status =>
+                            {!isLoading && statuses?.length > 0 && statuses.map(status =>
                                 <KanbanColumn
                                     key={status.uuid}
                                     id={status.id}

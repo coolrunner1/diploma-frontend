@@ -1,7 +1,7 @@
 'use client'
 import {useState} from 'react';
 import {Table, TableBody, TableHead, TableHeader, TableRow,} from '@/components/Global/ui/table';
-import {useParams} from "next/navigation";
+import {useParams, useSearchParams} from "next/navigation";
 import {Task} from "@/types/task";
 import {useQuery} from "@tanstack/react-query";
 import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
@@ -15,6 +15,7 @@ import {v4 as uuidv4} from 'uuid';
 import {useTranslations} from "next-intl";
 import {getProjectBoard} from "@/api/projects";
 import {useQueryWithErrorQueue} from "@/hooks/useQueryWithErrorQueue";
+import {SomethingWentWrongText} from "@/components/Global/Misc/SomethingWentWrongText";
 
 const tableHeader = [
     {
@@ -52,48 +53,14 @@ const tableHeader = [
 export default function Page() {
     const {projectId} = useParams();
     const [selectedTask, setSelectedTask] = useState<Task | null>(null);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [filterType, setFilterType] = useState<string>('all');
     const t = useTranslations();
+
+    const searchParams = useSearchParams();
 
     const {data, isLoading, isError} = useQueryWithErrorQueue({
         queryFn: getProjectBoard,
-        queryKey: ["_board", projectId]
+        queryKey: ["_board", projectId, searchParams.get("search"), searchParams.get("type"), searchParams.get("status")]
     });
-
-
-    //const project = projects.find((p) => p.id === projectId);
-    //const projectTasks = tasks.filter((task) => task.projectId === projectId);
-
-    /*const filteredTasks = projectTasks.filter((task) => {
-      const matchesSearch = task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           task.id.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesType = filterType === 'all' || task.type === filterType;
-      return matchesSearch && matchesType;
-    });
-
-    const handleStatusChange = (taskId: string, newStatus: Task['status']) => {
-      setTasks((prev) =>
-        prev.map((task) =>
-          task.id === taskId ? { ...task, status: newStatus } : task
-        )
-      );
-      if (selectedTask && selectedTask.id === taskId) {
-        setSelectedTask({ ...selectedTask, status: newStatus });
-      }
-    };
-
-    const handleCreateTask = (newTask: Task) => {
-      setTasks((prev) => [...prev, newTask]);
-    };
-
-    if (!project) {
-      return (
-        <div className="flex items-center justify-center h-full">
-          <p className="text-gray-500">Project not found</p>
-        </div>
-      );
-    }*/
 
     return (
         <div className="flex flex-col h-full bg-background">
@@ -133,6 +100,10 @@ export default function Page() {
                     </div>
                 </div>
             </NavBar>
+
+            {isError && !data &&
+                <SomethingWentWrongText/>
+            }
 
             <TaskDetail
                 task={selectedTask}

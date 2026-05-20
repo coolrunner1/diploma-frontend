@@ -4,5 +4,6 @@ import axiosClient from "@/api/axiosClient";
 
 export const getStatuses = async ({queryKey}: QueryKeyObject): Promise<ProjectStatus[]> => {
     const [_key, id] = queryKey;
-    return await axiosClient.get(`/projects/${id}/statuses`);
+    const res = await axiosClient.get(`/projects/${id}/statuses`);
+    return res.data;
 }

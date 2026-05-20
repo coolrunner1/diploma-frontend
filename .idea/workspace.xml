@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="" />
+    <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/Global/Misc/SomethingWentWrongText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/projects.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/projects.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/statuses.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/statuses.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/blocking-tasks/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/blocking-tasks/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/list-view/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/list-view/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/project.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +90,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.23567.141" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.24374.125" />
       </set>
     </attachedChunks>
   </component>
@@ -96,6 +108,10 @@
       <workItem from="1778423361758" duration="6731000" />
       <workItem from="1778502278378" duration="15702000" />
       <workItem from="1778605009296" duration="5666000" />
+      <workItem from="1778652185152" duration="2299000" />
+      <workItem from="1778662038994" duration="1808000" />
+      <workItem from="1778957879602" duration="1223000" />
+      <workItem from="1779005615525" duration="7588000" />
     </task>
     <servers />
   </component>

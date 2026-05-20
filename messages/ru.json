@@ -67,7 +67,8 @@
     "passwords-no-match": "Пароли не совпадают",
     "failed-delete": "Не удалось удалить",
     "has already been taken": "Уже существует такой пользователь",
-    "server-error": "Ошибка на стороне сервера"
+    "server-error": "Ошибка на стороне сервера",
+    "something-wrong": "Что-то пошло не так"
   },
   "Tasks": {
     "title": "Название",
