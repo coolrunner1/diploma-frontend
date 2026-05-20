@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Global/Misc/SomethingWentWrongText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/projects.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/projects.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/statuses.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/statuses.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/blocking-tasks/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/blocking-tasks/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/list-view/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/list-view/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/project.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Headers/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/Headers/SidebarContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Headers/SidebarContent.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +103,7 @@
       <workItem from="1778652185152" duration="2299000" />
       <workItem from="1778662038994" duration="1808000" />
       <workItem from="1778957879602" duration="1223000" />
-      <workItem from="1779005615525" duration="7588000" />
+      <workItem from="1779005615525" duration="8016000" />
     </task>
     <servers />
   </component>

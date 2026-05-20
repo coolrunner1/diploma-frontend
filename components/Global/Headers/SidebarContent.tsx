@@ -24,6 +24,7 @@ import {useTranslations} from "next-intl";
 import {Avatar, AvatarFallback} from "@/components/Global/ui/avatar";
 import {useQuery} from "@tanstack/react-query";
 import {getProjects} from "@/api/projects";
+import {generateArrayOfUUIDs} from "@/utils/generators";
 
 export type SidebarContentProps = {
     setClosed: () => void
@@ -86,44 +87,47 @@ export const SidebarContent = (props: SidebarContentProps) => {
                         {t('Navbar.your-projects')}
                     </div>
                     <div className="space-y-1 mt-2">
-
+                        {isLoading && generateArrayOfUUIDs(5).map((item) => (
+                            <div key={item} className={`w-full flex items-center gap-3 px-3 py-5 rounded-lg bg-background animate-pulse`}>
+                            </div>
+                        ))}
 
                         {!isLoading && projects && projects?.map((project) => (
-                                <div key={project.id}>
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <button
-                                                className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                                                    Number(projectId) === project.id
-                                                        ? 'bg-blue-50 text-blue-700'
-                                                        : 'hover:bg-hover'
-                                                }`}
-                                            >
+                            <div key={project.id}>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <button
+                                            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+                                                Number(projectId) === project.id
+                                                    ? 'bg-blue-50 text-blue-700'
+                                                    : 'hover:bg-hover'
+                                            }`}
+                                        >
                                                 <span className="flex-1 text-left text-sm font-medium truncate">
                                                     {project.title}
                                                 </span>
-                                                <ChevronDown className="w-4 h-4 text-gray-400" />
-                                            </button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="start" className="w-56">
-                                            {projectNavigation.map((item) => {
-                                                const Icon = item.icon;
-                                                return (
-                                                    <DropdownMenuItem key={item.name} asChild>
-                                                        <Link
-                                                            href={`/projects/${project.id}/${item.href}`}
-                                                            onClick={() => props.setClosed()}
-                                                        >
-                                                            <Icon className="w-4 h-4 mr-2" />
-                                                            {t(item.name)}
-                                                        </Link>
-                                                    </DropdownMenuItem>
-                                                )
-                                            })}
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
-                                </div>
-                            ))}
+                                            <ChevronDown className="w-4 h-4 text-gray-400"/>
+                                        </button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="start" className="w-56">
+                                        {projectNavigation.map((item) => {
+                                            const Icon = item.icon;
+                                            return (
+                                                <DropdownMenuItem key={item.name} asChild>
+                                                    <Link
+                                                        href={`/projects/${project.id}/${item.href}`}
+                                                        onClick={() => props.setClosed()}
+                                                    >
+                                                        <Icon className="w-4 h-4 mr-2"/>
+                                                        {t(item.name)}
+                                                    </Link>
+                                                </DropdownMenuItem>
+                                            )
+                                        })}
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </nav>
