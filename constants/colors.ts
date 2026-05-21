@@ -18,3 +18,17 @@ export const priorityBorderColors = {
     high: 'border-orange-500',
     critical: 'border-red-500',
 };
+
+export const priorityHexColors = {
+    low: '#3B82F6',
+    medium: '#F59E0B',
+    high: '#FF6900',
+    critical: '#EF4444',
+};
+
+export const taskTypeHexColors = {
+    task: '#3bf654',
+    bug: '#F5FA0B',
+    story: '#FFFFFF',
+    epic: '#EF4444',
+};

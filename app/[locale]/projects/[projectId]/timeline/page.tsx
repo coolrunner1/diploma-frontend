@@ -14,6 +14,7 @@ import { ProjectLane } from "@/components/Project/Roadmap/ProjectLane";
 import { RoadmapLegend } from "@/components/Project/Roadmap/RoadmapLegend";
 import {NavBar} from "@/components/Global/Headers/NavBar";
 import {TaskDetail} from "@/components/Project/Forms/TaskDetail";
+import {SomethingWentWrongText} from "@/components/Global/Misc/SomethingWentWrongText";
 
 export default function ProjectTimelinePage() {
     const params = useParams();
@@ -44,7 +45,7 @@ export default function ProjectTimelinePage() {
         setZoom((z) => Math.max(0.5, z - 0.25));
     };
 
-    const { data: tasks = [], isLoading } = useQueryWithErrorQueue<Task[]>({
+    const { data: tasks = [], isLoading, isError } = useQueryWithErrorQueue<Task[]>({
         queryKey: ["tasks", projectId],
         queryFn: getTasks,
     });
@@ -81,6 +82,8 @@ export default function ProjectTimelinePage() {
                         inProgress={stats.inProgress}
                     />
                 </div>
+
+                {isError && <SomethingWentWrongText/>}
 
                 {isLoading && <div className="h-full bg-container animate-pulse"/>}
 

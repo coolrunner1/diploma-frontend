@@ -127,5 +127,22 @@
   },
   "ListView": {
     "summary": "Задача"
+  },
+  "Stats": {
+    "total-tasks": "Всего задач",
+    "completed": "Выполнено",
+    "completion-rate": "Процент выполнения",
+    "overdue-tasks": "Просроченные задачи",
+    "task-statuses": "Статусы задач",
+    "priority": "Приоритет",
+    "task-types": "Типы задач",
+    "progress-trend": "Динамика",
+    "team-workload": "Нагрузка команды",
+    "overview": "Статистика проекта",
+    "unassigned": "Без исполнителя",
+    "done": "выполнено",
+    "active": "в работе",
+    "task-priority-distribution": "Распределение задач по приоритету",
+    "workflow-distribution": "Распределение по рабочему процессу"
   }
 }

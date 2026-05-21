@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd64f74d-0ac7-48d8-af01-5922e7976712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/timeline/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/ProjectLane.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/RoadmapHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/RoadmapLegend.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/RoadmapStats.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/TaskBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Project/Roadmap/TimelineHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/roadmapUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/stats/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Global/ui/progress.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Project/Stats/StatsLoading.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/tasks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/tasks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/kanban/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Global/Headers/SidebarContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Headers/SidebarContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Global/Modals/BurgerContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/Modals/BurgerContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/timeline/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/projects/[projectId]/timeline/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Global/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Global/ui/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/colors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/en.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messages/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/messages/ru.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/task.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/task.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +51,7 @@
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/igor/projects/diploma-backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/igor/projects/diploma-frontend/components/Global/ui&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -67,11 +61,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/Global/ui" />
       <recent name="$PROJECT_DIR$/components/Project/ListView" />
       <recent name="$PROJECT_DIR$/components/Global/FigmaTempVibe" />
       <recent name="$PROJECT_DIR$/app/[locale]/project/[projectId]/list-view" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components/Project/Forms" />
@@ -118,7 +112,8 @@
       <workItem from="1778652185152" duration="2299000" />
       <workItem from="1778662038994" duration="1808000" />
       <workItem from="1778957879602" duration="1223000" />
-      <workItem from="1779005615525" duration="16915000" />
+      <workItem from="1779005615525" duration="19464000" />
+      <workItem from="1779344150356" duration="5230000" />
     </task>
     <servers />
   </component>
@@ -131,7 +126,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/components/Project/Headers/ProjectHeader.tsx</url>
           <line>33</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

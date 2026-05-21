@@ -1,6 +1,13 @@
 import {User} from "@/types/user";
 import {ProjectStatus} from "@/types/project";
 
+export type Subtask = {
+    uuid: string,
+    title: string,
+    description: string,
+    completed: boolean,
+};
+
 export type Task = {
     id: number;
     uuid: string;
@@ -26,6 +33,7 @@ export type Task = {
 
     assignee: User;
     status: ProjectStatus;
+    subtasks: Subtask[];
 };
 
 export type Tag = {

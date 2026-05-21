@@ -127,5 +127,22 @@
   },
   "ListView": {
     "summary": "Summary"
+  },
+  "Stats": {
+    "total-tasks": "Total tasks",
+    "completed": "Completed",
+    "completion-rate": "Completion rate",
+    "overdue-tasks": "Overdue tasks",
+    "task-statuses": "Task statuses",
+    "priority": "Priority",
+    "task-types": "Task types",
+    "progress-trend": "Progress trend",
+    "team-workload": "Team workload",
+    "overview": "Project statistics overview",
+    "unassigned": "Unassigned",
+    "done": "done",
+    "active": "active",
+    "task-priority-distribution": "Task priority distribution",
+    "workflow-distribution": "Dynamic workflow distribution"
   }
 }
