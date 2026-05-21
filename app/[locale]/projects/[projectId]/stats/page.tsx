@@ -177,7 +177,7 @@ export default function ProjectStatsPage() {
                                 {t("overview")}
                             </p>
                         </div>
-                        <div className="grid grid-cols-4 gap-4">
+                        <div className="flex flex-col sm:grid sm:grid-cols-4 gap-4">
                             <Card>
                                 <CardHeader>
                                     <CardDescription>{t("total-tasks")}</CardDescription>
@@ -212,7 +212,7 @@ export default function ProjectStatsPage() {
                             </Card>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
                             <Card>
                                 <CardHeader>
                                     <CardTitle>{t("task-statuses")}</CardTitle>
@@ -268,7 +268,7 @@ export default function ProjectStatsPage() {
                             </Card>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
                             <Card>
                                 <CardHeader>
                                     <CardTitle>{t("task-types")}</CardTitle>
