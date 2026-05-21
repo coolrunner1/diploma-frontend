@@ -19,14 +19,14 @@ export function TimelineHeader({
     const {locale} = useParams();
 
     return (
-        <div className="sticky top-0 z-30 flex border-b shadow-sm">
+        <div className="sticky top-0 z-30 flex border-b border-default-border shadow-sm">
             <div className="flex">
                 {months.map(month => (
                     <div
                         key={
                             month.toISOString()
                         }
-                        className="border-r"
+                        className="border-r border-default-border"
                         style={{
                             width:
                                 getMonthWidth(
@@ -35,7 +35,7 @@ export function TimelineHeader({
                                 ),
                         }}
                     >
-                        <div className="p-3 border-b">
+                        <div className="p-3 border-b border-default-border">
                             <div className="font-semibold">
                                 {format(
                                     month,
@@ -44,7 +44,7 @@ export function TimelineHeader({
                                 )}
                             </div>
 
-                            <div className="text-xs text-muted-foreground mt-1">
+                            <div className="text-xs mt-1">
                                 1-{getDaysInMonth(
                                     month
                                 )}{" "}
@@ -63,7 +63,7 @@ export function TimelineHeader({
                                         key={
                                             day
                                         }
-                                        className="text-[10px] border-r text-center text-muted-foreground"
+                                        className="text-[10px] border-r text-center border-default-border"
                                         style={{
                                             width:
                                             dayWidth,

@@ -60,3 +60,27 @@ export const ruNominative = {
     },
   },
 };
+
+export const getWeekDaysByLocale = (locale: string) => {
+  if (locale === "ru") {
+    return [
+      "Вс",
+      "Пн",
+      "Вт",
+      "Ср",
+      "Чт",
+      "Пт",
+      "Сб",
+    ];
+  }
+
+  return [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
+}

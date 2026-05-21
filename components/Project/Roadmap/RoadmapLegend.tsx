@@ -16,7 +16,7 @@ export function RoadmapLegend() {
     })
 
     return (
-        <div className="border-t bg-container p-4 flex md:flex-wrap gap-6 text-sm overflow-x-scroll">
+        <div className="border-t border-default-border bg-container p-4 flex md:flex-wrap gap-6 text-sm overflow-x-scroll">
             {statuses &&
                 <>
                     <div className="font-semibold my-auto">

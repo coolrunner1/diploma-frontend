@@ -69,7 +69,7 @@ export default function ProjectTimelinePage() {
     return (
         <NavBar>
             <div className="h-full flex flex-col">
-                <div className="p-6 border-b space-y-4 bg-container">
+                <div className="p-6 shadow-lg space-y-4 bg-container">
                     <RoadmapHeader
                         scrollTimeline={scrollTimeline}
                         zoomIn={zoomIn}
