@@ -7,13 +7,20 @@ export const ThemeSwitchButton = (props: HeaderButtonProps) => {
     const [isDark, setIsDark] = useState(false);
 
     const onClick = () => {
-        document.body.classList.toggle('dark')
+        document.body.classList.toggle('dark');
+        localStorage.setItem('darkMode', (!isDark).toString());
         setIsDark(!isDark);
     }
 
     useEffect(() => {
         const refreshIcon = setTimeout(() => {
-            setIsDark(document.body.classList.contains("dark"))
+            const dark = localStorage.getItem('darkMode');
+
+            if (!dark) {
+                setIsDark(document.body.classList.contains("dark"));
+            } else {
+                setIsDark(dark === "true");
+            }
         },100)
         return () => {
             clearTimeout(refreshIcon);

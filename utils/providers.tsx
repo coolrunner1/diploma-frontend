@@ -7,7 +7,13 @@ import {PopupsContainer} from "@/components/Global/Misc/PopupsContainer";
 
 export default function Providers({ children }: { children: ReactNode }) {
     useEffect(() => {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        const dark = localStorage.getItem('darkMode');
+
+        if (dark === "true") {
+            document.body.classList.add("dark");
+        } else if (dark === "false") {
+            document.body.classList.remove("dark");
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
             document.body.classList.add("dark");
         }
     }, []);
