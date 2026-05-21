@@ -1,15 +1,4 @@
-import {
-    BarChart3,
-    Calendar,
-    ChevronDown,
-    Home,
-    LayoutGrid,
-    List,
-    Lock, MapPin,
-    Settings,
-    SidebarClose,
-    Users,
-} from 'lucide-react';
+import {ChevronDown, SidebarClose,} from 'lucide-react';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -25,25 +14,11 @@ import {Avatar, AvatarFallback} from "@/components/Global/ui/avatar";
 import {useQuery} from "@tanstack/react-query";
 import {getProjects} from "@/api/projects";
 import {generateArrayOfUUIDs} from "@/utils/generators";
+import {navigation, projectNavigation} from "@/constants/navigation";
 
 export type SidebarContentProps = {
     setClosed: () => void
 }
-
-const navigation = [
-    {name: 'projects', href: '/projects', icon: Home},
-];
-
-const projectNavigation = [
-    {name: 'board-view', href: `kanban`, icon: LayoutGrid},
-    {name: 'list-view', href: `list-view`, icon: List},
-    {name: 'calendar', href: `calendar`, icon: Calendar},
-    {name: 'stats', href: `stats`, icon: BarChart3},
-    {name: 'timeline', href: `timeline`, icon: MapPin},
-    {name: 'Navbar.blocking-tasks', href: `blocking-tasks`, icon: Lock},
-    {name: 'team', href: `team`, icon: Users},
-    {name: 'settings', href: `settings`, icon: Settings},
-]
 
 export const SidebarContent = (props: SidebarContentProps) => {
     const {pathname, projectId} = useParams();
@@ -89,7 +64,8 @@ export const SidebarContent = (props: SidebarContentProps) => {
                     </div>
                     <div className="space-y-1 mt-2">
                         {isLoading && generateArrayOfUUIDs(5).map((item) => (
-                            <div key={item} className={`w-full flex items-center gap-3 px-3 py-5 rounded-lg bg-background animate-pulse`}>
+                            <div key={item}
+                                 className={`w-full flex items-center gap-3 px-3 py-5 rounded-lg bg-background animate-pulse`}>
                             </div>
                         ))}
 

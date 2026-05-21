@@ -10,6 +10,7 @@
   "delete": "Delete",
   "profile": "Profile",
   "projects": "Projects",
+  "manage-projects": "Manage your team's work, track progress, and collaborate.",
   "team": "Team",
   "settings": "Settings",
   "change-language": "Language",
@@ -24,7 +25,6 @@
   "stats": "Stats",
   "timeline": "Timeline",
   "Landing": {
-    "manage-projects": "Manage Projects",
     "beautifully": "Beautifully",
     "description": "Your all-in-one project management platform.",
     "get-started": "Get started"
