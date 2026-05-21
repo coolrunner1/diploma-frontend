@@ -16,10 +16,10 @@ export function RoadmapLegend() {
     })
 
     return (
-        <div className="border-t bg-container p-4 flex flex-wrap gap-6 text-sm">
+        <div className="border-t bg-container p-4 flex md:flex-wrap gap-6 text-sm overflow-x-scroll">
             {statuses &&
                 <>
-                    <div className="font-semibold">
+                    <div className="font-semibold my-auto">
                         {t("Tasks.status")}
                     </div>
 
@@ -32,7 +32,7 @@ export function RoadmapLegend() {
                 </>
             }
 
-            <div className="ml-6 font-semibold">
+            <div className="ml-6 font-semibold my-auto">
                 {t("Tasks.priority")}
             </div>
 
