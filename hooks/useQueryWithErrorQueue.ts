@@ -12,13 +12,13 @@ export function useQueryWithErrorQueue<
     options: UseQueryOptions<TData, TError, TData, QueryKey>
 ) {
     const pushError = useStore(state => state.pushMessage);
-    const { data, isLoading, isError, error } = useQuery(options);
+    const query = useQuery(options);
 
     useEffect(() => {
-        if (error && error instanceof AxiosError) {
-            pushError(AxiosErrorToMessage(error));
+        if (query.error && query.error instanceof AxiosError) {
+            pushError(AxiosErrorToMessage(query.error));
         }
-    }, [error, pushError]);
+    }, [query.error, pushError]);
 
-    return { data, isLoading, isError };
+    return query;
 }

@@ -1,6 +1,5 @@
 "use client"
 
-import {useMutation} from "@tanstack/react-query";
 import {KanbanColumn} from "@/components/Project/Kanban/KanbanColumn";
 import {Task} from "@/types/task";
 import {DragDropProvider} from "@dnd-kit/react";
@@ -17,6 +16,7 @@ import {ProjectHeader} from "@/components/Project/Headers/ProjectHeader";
 import {ProjectStatus} from "@/types/project";
 import {useQueryWithErrorQueue} from "@/hooks/useQueryWithErrorQueue";
 import {SomethingWentWrongText} from "@/components/Global/Misc/SomethingWentWrongText";
+import {useMutationWithErrorQueue} from "@/hooks/useMutationWithErrorQueue";
 
 export default function KanbanPage() {
     const {projectId} = useParams();
@@ -31,7 +31,7 @@ export default function KanbanPage() {
         queryKey: ["_board", projectId, searchParams.get("search"), searchParams.get("type"), searchParams.get("status")]
     });
 
-    const {mutate: updateTask} = useMutation({
+    const {mutate: updateTask} = useMutationWithErrorQueue({
         mutationFn: updateTaskStatus,
     });
 

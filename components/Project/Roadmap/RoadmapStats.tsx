@@ -4,6 +4,7 @@ import { Card } from "@/components/Global/ui/card";
 import {useTranslations} from "next-intl";
 
 type Props = {
+    isLoading: boolean;
     total: number;
     completed: number;
     inProgress: number;
@@ -13,6 +14,7 @@ export function RoadmapStats({
                                  total,
                                  completed,
                                  inProgress,
+                                 isLoading
                              }: Props) {
     const t = useTranslations("Tasks");
 
@@ -24,7 +26,7 @@ export function RoadmapStats({
                 </div>
 
                 <div className="text-3xl text-black font-bold mt-2">
-                    {total}
+                    {isLoading ? <div className={"p-4 max-w-16 bg-gray-300 dark:bg-gray-700 animate-pulse"}></div> : total}
                 </div>
             </Card>
 
@@ -34,7 +36,7 @@ export function RoadmapStats({
                 </div>
 
                 <div className="text-3xl text-black font-bold mt-2">
-                    {completed}
+                    {isLoading ? <div className={"p-4 max-w-16 bg-gray-300 dark:bg-gray-700 animate-pulse"}></div> : completed}
                 </div>
             </Card>
 
@@ -44,7 +46,7 @@ export function RoadmapStats({
                 </div>
 
                 <div className="text-3xl text-black font-bold mt-2">
-                    {inProgress}
+                    {isLoading ? <div className={"p-4 max-w-16 bg-gray-300 dark:bg-gray-700 animate-pulse"}></div> : inProgress}
                 </div>
             </Card>
         </div>

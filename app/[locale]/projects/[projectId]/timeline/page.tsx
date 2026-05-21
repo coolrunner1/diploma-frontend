@@ -77,6 +77,7 @@ export default function ProjectTimelinePage() {
                     />
 
                     <RoadmapStats
+                        isLoading={isLoading}
                         total={stats.total}
                         completed={stats.completed}
                         inProgress={stats.inProgress}
